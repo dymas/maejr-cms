@@ -1,0 +1,90 @@
+.rodape{
+    margin-top: 2rem;
+    width: 100%;
+    background: #0a1e3a;  /* fallback for old browsers */
+}
+
+.rodape a {
+    text-decoration: none;
+    color: white;
+    font-family: "Poppins";
+}
+
+.container-rodape{
+    width: 90%;
+    margin: 0 auto;
+    padding: 1rem 0rem;
+}
+
+.text1-rodape{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Poppins';
+}
+
+.text1-rodape a{
+    color: white;
+    text-decoration: none;
+}
+
+.text1-rodape i{
+    color: red;
+}
+.text2-rodape a{
+    text-decoration: none;
+    color: #008bd8;
+}
+
+.icons-rodape{
+    display: flex;
+    float: right;
+    bottom: 0;
+    align-items: center;
+    font-size: xx-large;
+}
+
+.icons-rodape i{
+    margin-left: 20px;
+    color: white;
+    transition: color 0.5s;
+}
+
+.icons-rodape i:hover {
+    color: rgba(255,0,0,0.8);
+}
+
+.rodape span{
+    font-family: "Poppins", sans-serif;
+    padding: 10px 5px;
+    color: rgba(255,255,255, 0.6); 
+}
+.rodape-links  {
+    display: flex;
+    flex-direction:column;
+    width: 90%;
+    margin: 0 auto;
+
+}
+
+.rodape-wrapper {
+    display:flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+#inicio {
+    margin-right: 10px;
+}
+#termos {
+    margin-right: 10px;
+}
+
+.links a {
+    transition: background-color 0.5s;
+    border-radius: 5px;
+    padding:0rem 0.5rem;    
+}
+.links a:hover {
+    background-color:rgba(255,0,0,0.8);
+
+}

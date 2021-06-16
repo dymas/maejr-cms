@@ -1,0 +1,65 @@
+.lista {
+    margin: 0 auto;
+    max-width: 800px;
+}
+
+.blog {
+    font-size: 4rem;
+    font-family: "Bebas Neue", sans-serif;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.post {
+    margin-bottom: 50px;
+}
+
+.post h2 {
+    font-family: "Poppins", sans-serif;
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+.post h2 a {
+    color: #1a1a1a;
+    text-decoration: none;
+}
+
+.post time {
+    font-family: "Bebas Neue", sans-serif;
+    font-size: 1rem;
+    color: #8a8a8a;
+    margin: 10px 0;
+}
+
+.post img {
+    width: 100%;
+    margin: 10px 0;
+}
+
+.post p {
+    font-family: "Poppins", sans-serif;
+    font-weight: 300;
+    line-height: 1.7;
+    margin: 10px 0;
+    color: #3c3c3c;
+}
+
+.ler-mais {
+    text-align: right;
+    margin: 30px 0;
+}
+
+.ler-mais a {
+    font-family: "Bebas Neue", sans-serif;
+    font-size: 1rem;
+    padding: 10px;
+    background-color: #0a1e3a;
+    text-decoration: none;
+    color: #ffffff;
+    transition: color 0.5s;
+}
+
+.ler-mais a:hover {
+    color: #8a8a8a;
+}

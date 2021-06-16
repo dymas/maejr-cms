@@ -1,0 +1,54 @@
+.post-main {
+    margin: 0 auto;
+    max-width: 1110px;
+}
+
+.post-aberto h2 {
+    font-family: "Poppins", sans-serif;
+    text-align: center;
+    font-size: 2rem;
+}
+
+.data {
+    text-align: center;
+    margin: 10px 0;
+}
+
+.post-aberto time {
+    text-align: center;
+    font-family: "Bebas Neue", sans-serif;
+    font-size: 1rem;
+    color: #8a8a8a;
+}
+
+.post-aberto img {
+    width: 100%;
+}
+
+.post-aberto p {
+    margin: 20px auto;
+    width: 70%;
+    line-height: 1.7;
+    font-family: "Poppins", sans-serif;
+    font-weight: 300;
+    color: #3c3c3c;
+}
+
+.voltar {
+    text-align: center;
+    font-family: "Bebas Neue", sans-serif;
+    font-size: 1.5rem;
+    margin: 50px 0;
+}
+
+.voltar a {
+    padding: 10px 20px;
+    background-color: #0a1e3a;
+    text-decoration: none;
+    color: #ffffff;
+    transition: color 0.5s;
+}
+
+.voltar a:hover {
+    color: #8a8a8a;
+}

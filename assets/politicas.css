@@ -1,0 +1,31 @@
+@import 'componentes/all.css';
+
+.pagina-esp-bg {
+    background: #eee;
+}
+
+.politicas {
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgb(0 0 0 / 20%);
+    color: #000;
+    margin: 4em;
+    padding: 4em;
+}
+
+.politicas-titulo {
+    font: 0.9em 'Bebas Neue';
+    letter-spacing: 1px;
+    padding-bottom: 0.5em;
+}
+
+.politicas-texto {
+    font: 1em "Poppins";
+    font-weight: 350;
+    margin-bottom: 1em;
+}
+.politicas-lista {
+    font: 1em "Poppins";
+    font-weight: 350;
+    margin: 0 2em 1em 2em;
+}

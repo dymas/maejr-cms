@@ -1,0 +1,59 @@
+.minicards {
+    background: #FFEFBA;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to bottom, #FFEFBA, #FFFFFF);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to bottom, #FFEFBA, #FFFFFF); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+}
+
+.cabecalho-minicards {
+    display: flex;
+    justify-content: center;
+    padding-top: 20px;
+    margin-bottom: 60px;
+}
+
+.titulo-minicards {
+    font-family: "Bebas Neue", sans-serif;
+    font-size: 2.4rem;
+    border-bottom: 3px solid #008bd8;
+}
+
+.corpo-minicards {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    max-width: 800px;
+    margin: 0 auto;
+    padding-top: 20px;
+}
+
+.item-minicards {
+    max-width: 200px;
+    margin-bottom: 10px;
+}
+
+.minicards-imagem {
+    margin: 10px 20px;
+}
+
+.minicards-imagem img {
+    width: 100%;
+    height: 240px;
+    box-shadow: 1px 1px 10px #484848;
+}
+
+.titulo-item-minicards {
+    font-family: "Poppins", sans-serif;
+    font-size: 1rem;
+    margin: 0 20px;
+    hyphens: auto;
+}
+
+.cargo-minicards {
+    font-family: "Poppins", sans-serif;
+    color: #444444;
+    margin: 3px 20px;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+}

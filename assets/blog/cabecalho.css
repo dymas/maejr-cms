@@ -1,0 +1,12 @@
+.cabecalho {
+    margin: 0 auto;
+    max-width: 1110px;
+}
+
+.logo img {
+    width: 100px;
+}
+
+.fundo-blog {
+    background-color: #dfdfdf;
+}

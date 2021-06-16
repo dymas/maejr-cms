@@ -1,0 +1,19 @@
+<div class="container-all">
+    {% include hamburguer.html %}
+
+    <header id="cabeçalho">
+        <h1 class="logo"><img src="assets/imagens/maejr2.png" alt="{{ site.title }}"></h1>
+        <div class="hero-banner">
+            <div class="img-wrapper">
+                <img src="{{ page.bannerimage }}">
+            </div>
+            <div class="conteudo">
+                <h2>{{ page.bannertitle }}</h2>
+                <p>{{ page.bannersubtitle }}</p>
+                <a href="#sobre"><button class="saibamais">{{ page.buttontext }}</button></a>
+            </div>
+        </div>
+    </header>
+
+    {% include nav.html %}
+</div>

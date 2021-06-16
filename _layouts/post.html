@@ -1,0 +1,15 @@
+{% include bloghead.html %}
+<body class="fundo-blog">
+    {% include blogheader.html %}
+    <main class="post-main">
+        <article class="post-aberto">
+            <h2>{{ page.title }}</h2>
+            <div class="data"><time>{{ page.date | date_to_string }}</time></div>
+            {{ content }}
+        </article>
+        <div class="voltar"><a href="/blog.html">← Voltar para o blog</a></div>
+    </main>
+    {% include footer.html %}
+</body>
+<script src="/assets/script.js"></script>
+</html>
