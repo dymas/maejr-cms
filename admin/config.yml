@@ -2,6 +2,7 @@ backend:
   name: git-gateway
   branch: main # Branch to update (optional; defaults to master)
 
+locale: pt
 media_folder: "/assets/imagens/uploads"
 
 collections:
