@@ -1,8 +1,8 @@
 backend:
   name: git-gateway
-  branch: master # Branch to update (optional; defaults to master)
+  branch: main # Branch to update (optional; defaults to master)
 
-media_folder: "images/uploads"
+media_folder: "/assets/imagens/uploads"
 
 collections:
   - name: "blog" # Used in routes, e.g., /admin/collections/blog
