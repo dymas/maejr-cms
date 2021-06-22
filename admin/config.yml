@@ -17,8 +17,6 @@ collections:
       - {label: "Título da postagem", name: "title", widget: "string"}
       - {label: "Data de publicação", name: "date", widget: "datetime", date_format: "DD.MM.YYYY", time_format: "HH:mm"}
       - {label: "Texto", name: "body", widget: "markdown"}
-
-collections:
   - name: "politicas" # Used in routes, e.g., /admin/collections/blog
     label: "Políticas" # Used in the UI
     folder: "/" # The path to the folder where the documents are stored
