@@ -9,8 +9,12 @@
     <div class="rodape-links">
         <div class="rodape-wrapper">
             <div class="links">
-                <a>{{ page.url }} (teste)</a>
+                {% if page.url == "/" %}
                 <a id="inicio" href="#cabeçalho" target="_self">Inicio</a>
+                {% endif %}
+                {% if page.url != "/" %}
+                <a id="inicio" href="/" target="_self">Inicio</a>
+                {% endif %}
                 <a id="termos" href="termos.html" target="_self">Termos</a>
                 <a id="privacidade" href="privacidade.html" target="_self">Privacidade</a>
             </div>
