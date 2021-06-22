@@ -10,7 +10,9 @@
             <div class="conteudo">
                 <h2>{{ page.bannertitle }}</h2>
                 <p>{{ page.bannersubtitle }}</p>
+                {% if page.buttontext %}
                 <a href="#sobre"><button class="saibamais">{{ page.buttontext }}</button></a>
+                {% endif %}
             </div>
         </div>
     </header>
