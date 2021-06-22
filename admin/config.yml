@@ -18,5 +18,17 @@ collections:
       - {label: "Data de publicação", name: "date", widget: "datetime", date_format: "DD.MM.YYYY", time_format: "HH:mm"}
       - {label: "Texto", name: "body", widget: "markdown"}
 
+collections:
+  - name: "politicas" # Used in routes, e.g., /admin/collections/blog
+    label: "Políticas" # Used in the UI
+    folder: "/" # The path to the folder where the documents are stored
+    create: true # Allow users to create new documents in this collection
+    slug: "{{slug}}" # Filename template, e.g., YYYY-MM-DD-title.md
+    format: frontmatter
+    fields: # The fields for each document, usually in front matter
+      - {label: "Layout", name: "layout", widget: "hidden", default: "politicas"}
+      - {label: "Título da página", name: "title", widget: "string"}
+      - {label: "Texto", name: "body", widget: "markdown"}
+
 editor:
   preview: false
