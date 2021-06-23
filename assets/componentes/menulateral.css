@@ -64,6 +64,7 @@
     right: -20rem;
     transition: all 1s;
     z-index: 90;
+    overflow: auto;
 }
 
 .show-menu .sidebar{
