@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="/assets/normalize.css">
     <link rel="shortcut icon" href="/assets/imagens/favicon.ico" type="image/x-icon">
     <meta name="theme-color" content="#0a1e3a">
-    <title>MAE JR | Titulo Do Post 2</title>
+    <title>MAE JR | Título da postagem</title>
 </head>
 <body class="fundo-blog">
     <div class="container-all">
@@ -70,15 +70,10 @@
 </div>
     <main class="post-main">
         <article class="post-aberto">
-            <h2>Titulo Do Post 2</h2>
-            <div class="data"><time>16 Jun 2021</time></div>
-            <p>An apple is a sweet, edible fruit produced by an apple tree.</p>
-
-<p>Apple trees are cultivated worldwide, and are the most widely grown species in
-the genus Malus. The tree originated in Central Asia, where its wild ancestor,
-Malus sieversii, is still found today. Apples have been grown for thousands of
-years in Asia and Europe, and were brought to North America by European
-colonists.</p>
+            <h2>Título da postagem</h2>
+            <div class="data"><time>24 Jun 2021</time></div>
+            <p><img src="https://images.unsplash.com/photo-1623952696014-c72971cdd22c?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;ixlib=rb-1.2.1&amp;auto=format&amp;fit=crop&amp;w=750&amp;q=80" />
+dymas não é talarico.</p>
 
         </article>
         <div class="voltar"><a href="/blog.html">← Voltar para o blog</a></div>
@@ -94,7 +89,10 @@ colonists.</p>
     <div class="rodape-links">
         <div class="rodape-wrapper">
             <div class="links">
-                <a id="inicio" href="#cabeçalho" target="_self">Inicio</a>
+                
+                
+                <a id="inicio" href="/" target="_self">Inicio</a>
+                
                 <a id="termos" href="termos.html" target="_self">Termos</a>
                 <a id="privacidade" href="privacidade.html" target="_self">Privacidade</a>
             </div>
@@ -107,6 +105,17 @@ colonists.</p>
         <span>© 2021 CATI</span>
     </div>
 </footer>
+<script>
+    if (window.netlifyIdentity) {
+      window.netlifyIdentity.on("init", user => {
+        if (!user) {
+          window.netlifyIdentity.on("login", () => {
+            document.location.href = "/admin/";
+          });
+        }
+      });
+    }
+</script>
 </body>
 <script src="/assets/script.js"></script>
 </html>

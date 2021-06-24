@@ -13,18 +13,19 @@
     padding: 4em;
 }
 
-.politicas-titulo {
-    font: 0.9em 'Bebas Neue';
+h2 {
+    font: 2em 'Bebas Neue';
     letter-spacing: 1px;
     padding-bottom: 0.5em;
+    font-weight: 600;
 }
 
-.politicas-texto {
+p {
     font: 1em "Poppins";
     font-weight: 350;
     margin-bottom: 1em;
 }
-.politicas-lista {
+ol, ul {
     font: 1em "Poppins";
     font-weight: 350;
     margin: 0 2em 1em 2em;

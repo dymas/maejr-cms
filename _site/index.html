@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="/assets/normalize.css">
     <link rel="shortcut icon" href="/assets/imagens/favicon.ico" type="image/x-icon">
     <meta name="theme-color" content="#0a1e3a">
+    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
     <title>MAE JR | Página Inicial</title>
 </head>
 
@@ -30,7 +31,9 @@
             <div class="conteudo">
                 <h2>Essa empresa também é sua!</h2>
                 <p>Agende já sua primeira consultoria</p>
+                
                 <a href="#sobre"><button class="saibamais">Saiba Mais</button></a>
+                
             </div>
         </div>
     </header>
@@ -292,7 +295,10 @@
     <div class="rodape-links">
         <div class="rodape-wrapper">
             <div class="links">
+                
                 <a id="inicio" href="#cabeçalho" target="_self">Inicio</a>
+                
+                
                 <a id="termos" href="termos.html" target="_self">Termos</a>
                 <a id="privacidade" href="privacidade.html" target="_self">Privacidade</a>
             </div>
@@ -305,6 +311,17 @@
         <span>© 2021 CATI</span>
     </div>
 </footer>
+<script>
+    if (window.netlifyIdentity) {
+      window.netlifyIdentity.on("init", user => {
+        if (!user) {
+          window.netlifyIdentity.on("login", () => {
+            document.location.href = "/admin/";
+          });
+        }
+      });
+    }
+</script>
 </body>
 <script src="/assets/script.js"></script>
 </html>

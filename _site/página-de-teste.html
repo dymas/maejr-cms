@@ -5,13 +5,15 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/assets/blog.css">
+    <link rel="stylesheet" href="/assets/default.css">
     <link rel="stylesheet" href="/assets/normalize.css">
     <link rel="shortcut icon" href="/assets/imagens/favicon.ico" type="image/x-icon">
     <meta name="theme-color" content="#0a1e3a">
-    <title>MAE JR | Titulo Do Post 3</title>
+    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+    <title>MAE JR | Página de teste</title>
 </head>
-<body class="fundo-blog">
+
+<body>
     <div class="container-all">
     <div class="hamburguer">
     <div class="line" id="line1"></div>
@@ -21,7 +23,19 @@
 </div>
 
     <header id="cabeçalho">
-        <h1 class="logo"><img src="/assets/imagens/maejr1.png" alt="MAE JR"></h1>
+        <h1 class="logo"><img src="assets/imagens/maejr2.png" alt="MAE JR"></h1>
+        <div class="hero-banner">
+            <div class="img-wrapper">
+                <img src="/assets/imagens/uploads/sunsettraininstasmallgrain.jpg">
+            </div>
+            <div class="conteudo">
+                <h2>Essa página serve apenas para testar o Netlify CMS.</h2>
+                <p>Página feita para testes.</p>
+                
+                <a href="#sobre"><button class="saibamais">precisa ser opcional</button></a>
+                
+            </div>
+        </div>
     </header>
 
     <div class="sidebar">
@@ -68,22 +82,14 @@
     </div>
 </div>
 </div>
-    <main class="post-main">
-        <article class="post-aberto">
-            <h2>Titulo Do Post 3</h2>
-            <div class="data"><time>16 Jun 2021</time></div>
-            <p>Kiwifruit (often abbreviated as kiwi), or Chinese gooseberry is the edible
-berry of several species of woody vines in the genus Actinidia.</p>
 
-<p>The most common cultivar group of kiwifruit is oval, about the size of a large
-hen’s egg (5–8 cm (2.0–3.1 in) in length and 4.5–5.5 cm (1.8–2.2 in) in
-diameter). It has a fibrous, dull greenish-brown skin and bright green or
-golden flesh with rows of tiny, black, edible seeds. The fruit has a soft
-texture, with a sweet and unique flavor.</p>
+    <p>Teste.</p>
 
-        </article>
-        <div class="voltar"><a href="/blog.html">← Voltar para o blog</a></div>
-    </main>
+<h1 id="teste">Teste</h1>
+
+<p><em>Teste.</em></p>
+
+
     <footer class="rodape">
     <div class="container-rodape">
         <div class="text1-rodape">
@@ -95,7 +101,10 @@ texture, with a sweet and unique flavor.</p>
     <div class="rodape-links">
         <div class="rodape-wrapper">
             <div class="links">
-                <a id="inicio" href="#cabeçalho" target="_self">Inicio</a>
+                
+                
+                <a id="inicio" href="/" target="_self">Inicio</a>
+                
                 <a id="termos" href="termos.html" target="_self">Termos</a>
                 <a id="privacidade" href="privacidade.html" target="_self">Privacidade</a>
             </div>
@@ -108,6 +117,17 @@ texture, with a sweet and unique flavor.</p>
         <span>© 2021 CATI</span>
     </div>
 </footer>
+<script>
+    if (window.netlifyIdentity) {
+      window.netlifyIdentity.on("init", user => {
+        if (!user) {
+          window.netlifyIdentity.on("login", () => {
+            document.location.href = "/admin/";
+          });
+        }
+      });
+    }
+</script>
 </body>
 <script src="/assets/script.js"></script>
 </html>
