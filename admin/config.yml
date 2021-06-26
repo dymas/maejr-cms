@@ -4,6 +4,8 @@ backend:
 
 locale: pt
 media_folder: "/assets/imagens/uploads"
+logo_url: "/assets/imagens/maejr3.png"
+site_url: https://amazing-joliot-be8aab.netlify.app
 local_backend: true
 
 collections:
@@ -11,6 +13,8 @@ collections:
     label: "Blog" # Used in the UI
     folder: "/_posts" # The path to the folder where the documents are stored
     create: true # Allow users to create new documents in this collection
+    preview_path_date_field: "date"
+    preview_path: "{{year}}/{{month}}/{{day}}/{{title}}.html"
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}" # Filename template, e.g., YYYY-MM-DD-title.md
     format: frontmatter
     fields: # The fields for each document, usually in front matter
