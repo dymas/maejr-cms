@@ -11,5 +11,60 @@
 <body>
   <!-- Include the script that builds the page and powers Netlify CMS -->
   <script src="https://unpkg.com/netlify-cms@^2.0.0/dist/netlify-cms.js"></script>
+  <script>
+    CMS.registerEditorComponent({
+      // Internal id of the component
+      id: "blocoazul",
+      // Visible label
+      label: "Bloco Azul",
+      // Fields the user need to fill out when adding an instance of the component
+      fields: [
+        {
+          label: 'Identificador',
+          name: 'class',
+          widget: 'hidden',
+          default: '<section class="bloco"'
+        },
+        {
+          label: 'Título do bloco',
+          name: 'titulobloco',
+          widget: 'string'
+        },
+        {
+          label: 'Texto do bloco',
+          name: 'textobloco',
+          widget: 'string'
+        },
+        {
+          label: "Ícone",
+          name: "iconebloco",
+          widget: "select",
+          options: ["Universidade"],
+          required: false
+        }
+      ],
+      // Pattern to identify a block as being an instance of this component
+      pattern: /^<section class="bloco" id="(.*)"><h2>(.*)<\/h2><p>(.*)<\/p><p>(.*)<\/p><\/section>*$/,
+      // Function to extract data elements from the regexp match
+      fromBlock: function(match) {
+        return {
+          titulobloco: match[1],
+          textobloco: match[3],
+          iconebloco: match[4]
+        };
+      },
+      // Function to create a text block from an instance of this component
+      toBlock: function(obj) {
+        return '<section class="bloco" id="' + obj.titulobloco + '"><h2>' + obj.titulobloco + '</h2><p>' + obj.textobloco + '</p><p>' + obj.iconebloco + '</p></section>';
+      },
+      // Preview output for this component. Can either be a string or a React component
+      // (component gives better render performance)
+      toPreview: function(obj) {
+        return (
+          '<img src="http://img.youtube.com/vi/' + obj.id + '/maxresdefault.jpg" alt="Youtube Video"/>'
+        );
+      }
+    });
+    </script>
 </body>
 </html>
