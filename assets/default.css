@@ -1,7 +1,2 @@
 @import 'componentes/all.css';
-@import 'default/banner.css';
-@import 'default/cards.css';
-@import 'default/diretoria.css';
-@import 'default/nuvem.css';
-@import 'default/blocoazul.css';
-@import 'default/contato.css';
+@import 'widgets.css';

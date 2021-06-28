@@ -1,6 +1,6 @@
 /* banner*/
 
-.logo {
+.logo-banner {
     position: absolute;
     z-index: 1;
     left: 2%;
@@ -9,7 +9,7 @@
     width: 100px
 }
 
-.logo img {
+.logo-banner img {
     width: 100%;
 }
 

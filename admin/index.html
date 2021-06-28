@@ -1,5 +1,6 @@
 <!doctype html>
 <html>
+
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -8,23 +9,16 @@
   <meta name="theme-color" content="#0a1e3a">
   <title>Administração</title>
 </head>
+
 <body>
   <!-- Include the script that builds the page and powers Netlify CMS -->
   <script src="https://unpkg.com/netlify-cms@^2.0.0/dist/netlify-cms.js"></script>
+
   <script>
     CMS.registerEditorComponent({
-      // Internal id of the component
       id: "blocoazul",
-      // Visible label
       label: "Bloco Azul",
-      // Fields the user need to fill out when adding an instance of the component
       fields: [
-        {
-          label: 'Identificador',
-          name: 'class',
-          widget: 'hidden',
-          default: '<section class="bloco"'
-        },
         {
           label: 'Título do bloco',
           name: 'titulobloco',
@@ -43,28 +37,91 @@
           required: false
         }
       ],
-      // Pattern to identify a block as being an instance of this component
       pattern: /^<section class="bloco" id="(.*)"><h2>(.*)<\/h2><p>(.*)<\/p><p>(.*)<\/p><\/section>*$/,
-      // Function to extract data elements from the regexp match
-      fromBlock: function(match) {
+      fromBlock: function (match) {
         return {
           titulobloco: match[1],
           textobloco: match[3],
           iconebloco: match[4]
         };
       },
-      // Function to create a text block from an instance of this component
-      toBlock: function(obj) {
+      toBlock: function (obj) {
         return '<section class="bloco" id="' + obj.titulobloco + '"><h2>' + obj.titulobloco + '</h2><p>' + obj.textobloco + '</p><p>' + obj.iconebloco + '</p></section>';
       },
-      // Preview output for this component. Can either be a string or a React component
-      // (component gives better render performance)
-      toPreview: function(obj) {
+      toPreview: function (obj) {
         return (
-          '<img src="http://img.youtube.com/vi/' + obj.id + '/maxresdefault.jpg" alt="Youtube Video"/>'
+          '<section class="bloco" id="' + obj.titulobloco + '"><h2>' + obj.titulobloco + '</h2><p>' + obj.textobloco + '</p><p>' + obj.iconebloco + '</p></section>'
         );
       }
     });
-    </script>
+  </script>
+
+  <script>
+    CMS.registerEditorComponent({
+    id: "nuvem",
+    label: "Nuvem",
+    fields: [
+      {
+        label: 'Lista de Itens',
+        name: 'listanuvem',
+        widget: 'list',
+        label_singular: 'Item',
+        min: 2,
+        max: 6,
+        fields: [
+          {
+            label: 'Ícone do item',
+            name: 'iconenuvem',
+            widget: 'select',
+            options: ['Teste 1', 'Teste 2']
+          },
+          {
+            label: 'Título do item',
+            name: 'titulonuvem',
+            widget: 'string'
+          },
+          {
+            label: 'Texto do item',
+            name: 'textonuvem',
+            widget: 'string'
+          }
+        ]
+      }
+    ],
+    pattern: />[^<](.*?)</g,
+    fromBlock: function(match) {
+      console.log(match);
+      var corte = match[1].length - 2;
+      console.log(match[1].substr(1, corte));
+      return '';
+    },
+    toBlock: function(obj) {
+      console.log(obj.listanuvem);
+      if(obj.listanuvem) {
+        var listanuvem = [];
+        for (var item in obj.listanuvem) {
+          listanuvem.push({
+            iconenuvem: obj.listanuvem[item].iconenuvem,
+            titulonuvem: obj.listanuvem[item].titulonuvem,
+            textonuvem: obj.listanuvem[item].textonuvem
+          });
+        }
+      }
+      if (listanuvem) {
+        var itensnuvem = '';
+        for (var item in listanuvem) {
+          itensnuvem += '<div class="item"><div class="cabecalho">' + listanuvem[item].iconenuvem + '<h3>' + listanuvem[item].titulonuvem + '</h3></div><p>' + listanuvem[item].textonuvem + '</p></div>'
+        }
+        return '<div class="grid">' + itensnuvem + '</div>';
+      }
+    },
+    toPreview: function(obj) {
+      return (
+        ''
+      );
+    }
+  });
+  </script>
 </body>
+
 </html>
