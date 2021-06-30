@@ -58,69 +58,76 @@
 
   <script>
     CMS.registerEditorComponent({
-    id: "nuvem",
-    label: "Nuvem",
-    fields: [
-      {
-        label: 'Lista de Itens',
-        name: 'listanuvem',
-        widget: 'list',
-        label_singular: 'Item',
-        min: 2,
-        max: 6,
-        fields: [
-          {
-            label: 'Ícone do item',
-            name: 'iconenuvem',
-            widget: 'select',
-            options: ['Teste 1', 'Teste 2']
-          },
-          {
-            label: 'Título do item',
-            name: 'titulonuvem',
-            widget: 'string'
-          },
-          {
-            label: 'Texto do item',
-            name: 'textonuvem',
-            widget: 'string'
-          }
-        ]
-      }
-    ],
-    pattern: />[^<](.*?)</g,
-    fromBlock: function(match) {
-      console.log(match);
-      var corte = match[1].length - 2;
-      console.log(match[1].substr(1, corte));
-      return '';
-    },
-    toBlock: function(obj) {
-      console.log(obj.listanuvem);
-      if(obj.listanuvem) {
+      id: "nuvem",
+      label: "Nuvem",
+      fields: [
+        {
+          label: 'Lista de Itens',
+          name: 'listanuvem',
+          widget: 'list',
+          label_singular: 'Item',
+          min: 2,
+          max: 6,
+          fields: [
+            {
+              label: 'Ícone do item',
+              name: 'iconenuvem',
+              widget: 'select',
+              options: ['Teste 1', 'Teste 2']
+            },
+            {
+              label: 'Título do item',
+              name: 'titulonuvem',
+              widget: 'string'
+            },
+            {
+              label: 'Texto do item',
+              name: 'textonuvem',
+              widget: 'string'
+            }
+          ]
+        }
+      ],
+      pattern: /^{% assign array = "(.*?)" \| split: ", " %} {% include nuvem.html %}*$/,
+      fromBlock: function (match) {
         var listanuvem = [];
-        for (var item in obj.listanuvem) {
+        var origem = match[1].split(",");
+        console.log(origem);
+        var [num1, num2, num3] = [0, 1, 2];
+        for (var item in origem) {
+          if (origem.length === num1) {
+            return listanuvem;
+            break;
+          }
+          var [icone, titulo, texto] = [origem[num1], origem[num2], origem[num3]];
           listanuvem.push({
-            iconenuvem: obj.listanuvem[item].iconenuvem,
-            titulonuvem: obj.listanuvem[item].titulonuvem,
-            textonuvem: obj.listanuvem[item].textonuvem
+            iconenuvem: icone,
+            titulonuvem: titulo,
+            textonuvem: texto
           });
+          num1 = num3 + 1;
+          num2 = num3 + 2;
+          num3 = num3 + 3;
         }
-      }
-      if (listanuvem) {
-        var itensnuvem = '';
-        for (var item in listanuvem) {
-          itensnuvem += '<div class="item"><div class="cabecalho">' + listanuvem[item].iconenuvem + '<h3>' + listanuvem[item].titulonuvem + '</h3></div><p>' + listanuvem[item].textonuvem + '</p></div>'
+        return listanuvem;
+      },
+      toBlock: function (obj) {
+        if (obj.listanuvem !== undefined) {
+          var arraylistanuvem = [];
+          for (var item in obj.listanuvem) {
+            arraylistanuvem.push(obj.listanuvem[item].iconenuvem, obj.listanuvem[item].titulonuvem, obj.listanuvem[item].textonuvem);
+          }
         }
-        return '<div class="grid">' + itensnuvem + '</div>';
+        if (arraylistanuvem) {
+          return '{% assign array = "' + arraylistanuvem.join() + '" | split: ", " %} {% include nuvem.html %}';
+        }
+      },
+      toPreview: function (obj) {
+        return (
+          ''
+        );
       }
-    },
-    toPreview: function(obj) {
-      return (
-        ''
-      );
-    }
-  });
+    });
   </script>
 </body>
 
