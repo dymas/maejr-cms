@@ -59,6 +59,12 @@
       fields: [
         /* Item 1 */
         {
+          label: "Ícone do item 1",
+          name: "iconenuvem1",
+          widget: "select",
+          options: ["Universidade"]
+        },
+        {
           label: 'Título do item 1',
           name: 'titulonuvem1',
           widget: 'string'
@@ -68,14 +74,13 @@
           name: 'textonuvem1',
           widget: 'string'
         },
-        {
-          label: "Ícone do item 1",
-          name: "iconenuvem1",
-          widget: "select",
-          options: ["Universidade"],
-          required: false
-        },
         /* Item 2 */
+        {
+          label: "Ícone do item 2",
+          name: "iconenuvem2",
+          widget: "select",
+          options: ["Universidade"]
+        },
         {
           label: 'Título do item 2',
           name: 'titulonuvem2',
@@ -86,14 +91,13 @@
           name: 'textonuvem2',
           widget: 'string'
         },
+        /* Item 3 */
         {
-          label: "Ícone do item 2",
-          name: "iconenuvem2",
+          label: "Ícone do item 3",
+          name: "iconenuvem3",
           widget: "select",
           options: ["Universidade"],
-          required: false
         },
-        /* Item 3 */
         {
           label: 'Título do item 3',
           name: 'titulonuvem3',
@@ -104,14 +108,13 @@
           name: 'textonuvem3',
           widget: 'string'
         },
-        {
-          label: "Ícone do item 3",
-          name: "iconenuvem3",
-          widget: "select",
-          options: ["Universidade"],
-          required: false
-        },
         /* Item 4 */
+        {
+          label: "Ícone do item 4",
+          name: "iconenuvem4",
+          widget: "select",
+          options: ["Universidade"]
+        },
         {
           label: 'Título do item 4',
           name: 'titulonuvem4',
@@ -122,14 +125,13 @@
           name: 'textonuvem4',
           widget: 'string'
         },
-        {
-          label: "Ícone do item 4",
-          name: "iconenuvem4",
-          widget: "select",
-          options: ["Universidade"],
-          required: false
-        },
         /* Item 5 */
+        {
+          label: "Ícone do item 5",
+          name: "iconenuvem5",
+          widget: "select",
+          options: ["Universidade"]
+        },
         {
           label: 'Título do item 5',
           name: 'titulonuvem5',
@@ -140,14 +142,13 @@
           name: 'textonuvem5',
           widget: 'string'
         },
-        {
-          label: "Ícone do item 5",
-          name: "iconenuvem5",
-          widget: "select",
-          options: ["Universidade"],
-          required: false
-        },
         /* Item 6 */ 
+        {
+          label: "Ícone do item 6",
+          name: "iconenuvem6",
+          widget: "select",
+          options: ["Universidade"]
+        },
         {
           label: 'Título do item 6',
           name: 'titulonuvem6',
@@ -157,40 +158,39 @@
           label: 'Texto do item 6',
           name: 'textonuvem6',
           widget: 'string'
-        },
-        {
-          label: "Ícone do item 6",
-          name: "iconenuvem6",
-          widget: "select",
-          options: ["Universidade"],
-          required: false
-        },
+        }
       ],
-      pattern: /^{% assign array = "(.*?),(.*?),(.*?),(.*?),(.*?),(.*?),(.*?),(.*?),(.*?),(.*?),(.*?),(.*?),(.*?),(.*?),(.*?),(.*?),(.*?),(.*?)" \| split: ", " %} {% include nuvem.html %}*$/,
+      pattern: /^{% assign array = "(.*?),(.*?),(.*?),(.*?),(.*?),(.*?),(.*?),(.*?),(.*?),(.*?),(.*?),(.*?),(.*?),(.*?),(.*?),(.*?),(.*?),(.*?)" \| split: "," %} {% include nuvem.html %}*$/,
       fromBlock: function (match) {
         return {
-          titulonuvem1: match[1],
+          /* Item 1 */
+          iconenuvem1: match[1],
           textonuvem1: match[2],
-          iconenuvem1: match[3],
-          titulonuvem2: match[4],
+          titulonuvem1: match[3],
+          /* Item 2 */
+          iconenuvem2: match[4],
           textonuvem2: match[5],
-          iconenuvem2: match[6],
-          titulonuvem3: match[7],
+          titulonuvem2: match[6],
+          /* Item 3 */
+          iconenuvem3: match[7],
           textonuvem3: match[8],
-          iconenuvem3: match[9],
-          titulonuvem4: match[10],
+          titulonuvem3: match[9],
+          /* Item 4 */
+          iconenuvem4: match[10],
           textonuvem4: match[11],
-          iconenuvem4: match[12],
-          titulonuvem5: match[13],
+          titulonuvem4: match[12],
+          /* Item 5 */
+          iconenuvem5: match[13],
           textonuvem5: match[14],
-          iconenuvem5: match[15],
-          titulonuvem6: match[16],
+          titulonuvem5: match[15],
+          /* Item 6 */
+          iconenuvem6: match[16],
           textonuvem6: match[17],
-          iconenuvem6: match[18]
+          titulonuvem6: match[18]
         };
       },
       toBlock: function (obj) {
-        return '{% assign array = "' + obj.titulonuvem1 + ',' + obj.textonuvem1 + ',' + obj.iconenuvem1 + ',' + obj.titulonuvem2 + "," + obj.textonuvem2 + ',' + obj.iconenuvem2 + ',' + obj.titulonuvem3 + "," + obj.textonuvem3 + ',' + obj.iconenuvem3 + ',' + obj.titulonuvem4 + "," + obj.textonuvem4 + ',' + obj.iconenuvem4 + ',' + obj.titulonuvem5 + "," + obj.textonuvem5 + ',' + obj.iconenuvem5 + ',' + obj.titulonuvem6 + "," + obj.textonuvem6 + ',' + obj.iconenuvem6 + '" | split: ", " %} {% include nuvem.html %}';
+        return '{% assign array = "' + obj.iconenuvem1 + ',' + obj.textonuvem1 + ',' + obj.titulonuvem1 + ',' + obj.iconenuvem2 + "," + obj.textonuvem2 + ',' + obj.titulonuvem2 + ',' + obj.iconenuvem3 + "," + obj.textonuvem3 + ',' + obj.titulonuvem3 + ',' + obj.iconenuvem4 + "," + obj.textonuvem4 + ',' + obj.titulonuvem4 + ',' + obj.iconenuvem5 + "," + obj.textonuvem5 + ',' + obj.titulonuvem5 + ',' + obj.iconenuvem6 + "," + obj.textonuvem6 + ',' + obj.titulonuvem6 + '" | split: "," %} {% include nuvem.html %}';
       }
     });
   </script>

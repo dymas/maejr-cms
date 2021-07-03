@@ -4,7 +4,7 @@ backend:
 
 locale: pt
 media_folder: "/assets/imagens/uploads"
-logo_url: "/assets/imagens/maejr3.png"
+logo_url: "/assets/imagens/cmsimage.png"
 site_url: https://amazing-joliot-be8aab.netlify.app
 local_backend: true
 
