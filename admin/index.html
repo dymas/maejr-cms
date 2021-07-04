@@ -165,32 +165,32 @@
         return {
           /* Item 1 */
           iconenuvem1: match[1],
-          textonuvem1: match[2],
-          titulonuvem1: match[3],
+          titulonuvem1: match[2],
+          textonuvem1: match[3],
           /* Item 2 */
           iconenuvem2: match[4],
-          textonuvem2: match[5],
-          titulonuvem2: match[6],
+          titulonuvem2: match[5],
+          textonuvem2: match[6],
           /* Item 3 */
           iconenuvem3: match[7],
-          textonuvem3: match[8],
-          titulonuvem3: match[9],
+          titulonuvem3: match[8],
+          textonuvem3: match[9],
           /* Item 4 */
           iconenuvem4: match[10],
-          textonuvem4: match[11],
-          titulonuvem4: match[12],
+          titulonuvem4: match[11],
+          textonuvem4: match[12],
           /* Item 5 */
           iconenuvem5: match[13],
-          textonuvem5: match[14],
-          titulonuvem5: match[15],
+          titulonuvem5: match[14],
+          textonuvem5: match[15],
           /* Item 6 */
           iconenuvem6: match[16],
-          textonuvem6: match[17],
-          titulonuvem6: match[18]
+          titulonuvem6: match[17],
+          textonuvem6: match[18]
         };
       },
       toBlock: function (obj) {
-        return '{% assign array = "' + obj.iconenuvem1 + ',' + obj.textonuvem1 + ',' + obj.titulonuvem1 + ',' + obj.iconenuvem2 + "," + obj.textonuvem2 + ',' + obj.titulonuvem2 + ',' + obj.iconenuvem3 + "," + obj.textonuvem3 + ',' + obj.titulonuvem3 + ',' + obj.iconenuvem4 + "," + obj.textonuvem4 + ',' + obj.titulonuvem4 + ',' + obj.iconenuvem5 + "," + obj.textonuvem5 + ',' + obj.titulonuvem5 + ',' + obj.iconenuvem6 + "," + obj.textonuvem6 + ',' + obj.titulonuvem6 + '" | split: "," %} {% include nuvem.html %}';
+        return '{% assign array = "' + obj.iconenuvem1 + ',' + obj.titulonuvem1 + ',' + obj.textonuvem1 + ',' + obj.iconenuvem2 + "," + obj.titulonuvem2 + ',' + obj.textonuvem2 + ',' + obj.iconenuvem3 + "," + obj.titulonuvem3 + ',' + obj.textonuvem3 + ',' + obj.iconenuvem4 + "," + obj.titulonuvem4 + ',' + obj.textonuvem4 + ',' + obj.iconenuvem5 + "," + obj.titulonuvem5 + ',' + obj.textonuvem5 + ',' + obj.iconenuvem6 + "," + obj.titulonuvem6 + ',' + obj.textonuvem6 + '" | split: "," %} {% include nuvem.html %}';
       }
     });
   </script>
