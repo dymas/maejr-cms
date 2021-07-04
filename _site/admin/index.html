@@ -34,11 +34,21 @@
           label: "Ícone",
           name: "iconebloco",
           widget: "select",
-          options: ["Universidade"],
+          options: [
+            { label: "Universidade", value: '<i class="fas fa-university"></i>' },
+            { label: "Pessoas", value: '<i class="fas fa-users"></i>' },
+            { label: "Lupa", value: '<i class="fas fa-search"></i>' },
+            { label: 'Prancheta', value: '<i class="fas fa-clipboard-list"></i>' },
+            { label: 'Maleta com relógio', value: '<i class="fas fa-business-time"></i>' },
+            { label: 'Foguete', value: '<i class="fas fa-rocket"></i>' },
+            { label: 'Maleta', value: '<i class="fas fa-suitcase"></i>' },
+            { label: 'Pessoas (engrenagem)', value: '<i class="fas fa-users-cog"></i>' },
+            { label: 'Ícone do PDF', value: '<i class="fas fa-file-pdf"></i>' }
+          ],
           required: false
         }
       ],
-      pattern: /^<section class="bloco" id="(.*)"><h2>(.*)<\/h2><p>(.*)<\/p><p>(.*)<\/p><\/section>*$/,
+      pattern: /^<section class="bloco" id="(.*)"><h2>(.*)<\/h2><p>(.*)<\/p>(.*)<\/section>*$/,
       fromBlock: function (match) {
         return {
           titulobloco: match[1],
@@ -47,8 +57,7 @@
         };
       },
       toBlock: function (obj) {
-        console.log(obj);
-        return '<section class="bloco" id="' + obj.titulobloco + '"><h2>' + obj.titulobloco + '</h2><p>' + obj.textobloco + '</p><p>' + obj.iconebloco + '</p></section>';
+        return '<section class="bloco" id="' + obj.titulobloco + '"><h2>' + obj.titulobloco + '</h2><p>' + obj.textobloco + '</p>' + obj.iconebloco + '</section>';
       }
     });
 
@@ -62,7 +71,18 @@
           label: "Ícone do item 1",
           name: "iconenuvem1",
           widget: "select",
-          options: ["Universidade"]
+          options: [
+            { label: "Universidade", value: '<i class="fas fa-university"></i>' },
+            { label: "Pessoas", value: '<i class="fas fa-users"></i>' },
+            { label: "Lupa", value: '<i class="fas fa-search"></i>' },
+            { label: 'Prancheta', value: '<i class="fas fa-clipboard-list"></i>' },
+            { label: 'Maleta com relógio', value: '<i class="fas fa-business-time"></i>' },
+            { label: 'Foguete', value: '<i class="fas fa-rocket"></i>' },
+            { label: 'Maleta', value: '<i class="fas fa-suitcase"></i>' },
+            { label: 'Pessoas (engrenagem)', value: '<i class="fas fa-users-cog"></i>' },
+            { label: 'Ícone do PDF', value: '<i class="fas fa-file-pdf"></i>' }
+          ],
+          default: ['<i class="fas fa-university"></i>']
         },
         {
           label: 'Título do item 1',
@@ -79,12 +99,23 @@
           label: "Ícone do item 2",
           name: "iconenuvem2",
           widget: "select",
-          options: ["Universidade"]
+          options: [
+            { label: "Universidade", value: '<i class="fas fa-university"></i>' },
+            { label: "Pessoas", value: '<i class="fas fa-users"></i>' },
+            { label: "Lupa", value: '<i class="fas fa-search"></i>' },
+            { label: 'Prancheta', value: '<i class="fas fa-clipboard-list"></i>' },
+            { label: 'Maleta com relógio', value: '<i class="fas fa-business-time"></i>' },
+            { label: 'Foguete', value: '<i class="fas fa-rocket"></i>' },
+            { label: 'Maleta', value: '<i class="fas fa-suitcase"></i>' },
+            { label: 'Pessoas (engrenagem)', value: '<i class="fas fa-users-cog"></i>' },
+            { label: 'Ícone do PDF', value: '<i class="fas fa-file-pdf"></i>' }
+          ],
+          default: ['<i class="fas fa-university"></i>']
         },
         {
           label: 'Título do item 2',
           name: 'titulonuvem2',
-          widget: 'string'
+          widget: 'string',
         },
         {
           label: 'Texto do item 2',
@@ -96,7 +127,18 @@
           label: "Ícone do item 3",
           name: "iconenuvem3",
           widget: "select",
-          options: ["Universidade"],
+          options: [
+            { label: 'Universidade', value: '<i class="fas fa-university"></i>' },
+            { label: "Pessoas", value: '<i class="fas fa-users"></i>' },
+            { label: "Lupa", value: '<i class="fas fa-search"></i>' },
+            { label: 'Prancheta', value: '<i class="fas fa-clipboard-list"></i>' },
+            { label: 'Maleta com relógio', value: '<i class="fas fa-business-time"></i>' },
+            { label: 'Foguete', value: '<i class="fas fa-rocket"></i>' },
+            { label: 'Maleta', value: '<i class="fas fa-suitcase"></i>' },
+            { label: 'Pessoas (engrenagem)', value: '<i class="fas fa-users-cog"></i>' },
+            { label: 'Ícone do PDF', value: '<i class="fas fa-file-pdf"></i>' }
+          ],
+          default: ['<i class="fas fa-university"></i>']
         },
         {
           label: 'Título do item 3',
@@ -113,7 +155,18 @@
           label: "Ícone do item 4",
           name: "iconenuvem4",
           widget: "select",
-          options: ["Universidade"]
+          options: [
+            { label: "Universidade", value: '<i class="fas fa-university"></i>' },
+            { label: "Pessoas", value: '<i class="fas fa-users"></i>' },
+            { label: "Lupa", value: '<i class="fas fa-search"></i>' },
+            { label: 'Prancheta', value: '<i class="fas fa-clipboard-list"></i>' },
+            { label: 'Maleta com relógio', value: '<i class="fas fa-business-time"></i>' },
+            { label: 'Foguete', value: '<i class="fas fa-rocket"></i>' },
+            { label: 'Maleta', value: '<i class="fas fa-suitcase"></i>' },
+            { label: 'Pessoas (engrenagem)', value: '<i class="fas fa-users-cog"></i>' },
+            { label: 'Ícone do PDF', value: '<i class="fas fa-file-pdf"></i>' }
+          ],
+          default: ['<i class="fas fa-university"></i>']
         },
         {
           label: 'Título do item 4',
@@ -130,7 +183,18 @@
           label: "Ícone do item 5",
           name: "iconenuvem5",
           widget: "select",
-          options: ["Universidade"]
+          options: [
+            { label: "Universidade", value: '<i class="fas fa-university"></i>' },
+            { label: "Pessoas", value: '<i class="fas fa-users"></i>' },
+            { label: "Lupa", value: '<i class="fas fa-search"></i>' },
+            { label: 'Prancheta', value: '<i class="fas fa-clipboard-list"></i>' },
+            { label: 'Maleta com relógio', value: '<i class="fas fa-business-time"></i>' },
+            { label: 'Foguete', value: '<i class="fas fa-rocket"></i>' },
+            { label: 'Maleta', value: '<i class="fas fa-suitcase"></i>' },
+            { label: 'Pessoas (engrenagem)', value: '<i class="fas fa-users-cog"></i>' },
+            { label: 'Ícone do PDF', value: '<i class="fas fa-file-pdf"></i>' }
+          ],
+          default: ['<i class="fas fa-university"></i>']
         },
         {
           label: 'Título do item 5',
@@ -142,12 +206,23 @@
           name: 'textonuvem5',
           widget: 'string'
         },
-        /* Item 6 */ 
+        /* Item 6 */
         {
           label: "Ícone do item 6",
           name: "iconenuvem6",
           widget: "select",
-          options: ["Universidade"]
+          options: [
+            { label: "Universidade", value: '<i class="fas fa-university"></i>' },
+            { label: "Pessoas", value: '<i class="fas fa-users"></i>' },
+            { label: "Lupa", value: '<i class="fas fa-search"></i>' },
+            { label: 'Prancheta', value: '<i class="fas fa-clipboard-list"></i>' },
+            { label: 'Maleta com relógio', value: '<i class="fas fa-business-time"></i>' },
+            { label: 'Foguete', value: '<i class="fas fa-rocket"></i>' },
+            { label: 'Maleta', value: '<i class="fas fa-suitcase"></i>' },
+            { label: 'Pessoas (engrenagem)', value: '<i class="fas fa-users-cog"></i>' },
+            { label: 'Ícone do PDF', value: '<i class="fas fa-file-pdf"></i>' }
+          ],
+          default: ['<i class="fas fa-university"></i>']
         },
         {
           label: 'Título do item 6',
@@ -160,39 +235,40 @@
           widget: 'string'
         }
       ],
-      pattern: /^{% assign array = "(.*?),(.*?),(.*?),(.*?),(.*?),(.*?),(.*?),(.*?),(.*?),(.*?),(.*?),(.*?),(.*?),(.*?),(.*?),(.*?),(.*?),(.*?)" \| split: "," %} {% include nuvem.html %}*$/,
+      pattern: /^<section class="nuvem" id="serviços"> <div class="grid"> <div class="item"> <div class="cabecalho"> (.*?) <h3>(.*?)<\/h3> <\/div> <p>(.*?)<\/p> <\/div> <div class="item"> <div class="cabecalho"> (.*?) <h3>(.*?)<\/h3> <\/div> <p>(.*?)<\/p> <\/div> <div class="item"> <div class="cabecalho"> (.*?) <h3>(.*?)<\/h3> <\/div> <p>(.*?)<\/p> <\/div> <div class="item"> <div class="cabecalho"> (.*?) <h3>(.*?)<\/h3> <\/div> <p>(.*?)<\/p> <\/div> <div class="item"> <div class="cabecalho"> (.*?) <h3>(.*?)<\/h3> <\/div> <p>(.*?)<\/p> <\/div> <div class="item"> <div class="cabecalho"> (.*?) <h3>(.*?)<\/h3> <\/div> <p>(.*?)<\/p> <\/div> <div class="imagem"> <img src="\/assets\/imagens\/imagem.png" alt="Consulta"> <\/div> <\/div><\/section>*$/,
       fromBlock: function (match) {
         return {
           /* Item 1 */
           iconenuvem1: match[1],
-          textonuvem1: match[2],
-          titulonuvem1: match[3],
+          titulonuvem1: match[2],
+          textonuvem1: match[3],
           /* Item 2 */
           iconenuvem2: match[4],
-          textonuvem2: match[5],
-          titulonuvem2: match[6],
+          titulonuvem2: match[5],
+          textonuvem2: match[6],
           /* Item 3 */
           iconenuvem3: match[7],
-          textonuvem3: match[8],
-          titulonuvem3: match[9],
+          titulonuvem3: match[8],
+          textonuvem3: match[9],
           /* Item 4 */
           iconenuvem4: match[10],
-          textonuvem4: match[11],
-          titulonuvem4: match[12],
+          titulonuvem4: match[11],
+          textonuvem4: match[12],
           /* Item 5 */
           iconenuvem5: match[13],
-          textonuvem5: match[14],
-          titulonuvem5: match[15],
+          titulonuvem5: match[14],
+          textonuvem5: match[15],
           /* Item 6 */
           iconenuvem6: match[16],
-          textonuvem6: match[17],
-          titulonuvem6: match[18]
+          titulonuvem6: match[17],
+          textonuvem6: match[18]
         };
       },
       toBlock: function (obj) {
-        return '{% assign array = "' + obj.iconenuvem1 + ',' + obj.textonuvem1 + ',' + obj.titulonuvem1 + ',' + obj.iconenuvem2 + "," + obj.textonuvem2 + ',' + obj.titulonuvem2 + ',' + obj.iconenuvem3 + "," + obj.textonuvem3 + ',' + obj.titulonuvem3 + ',' + obj.iconenuvem4 + "," + obj.textonuvem4 + ',' + obj.titulonuvem4 + ',' + obj.iconenuvem5 + "," + obj.textonuvem5 + ',' + obj.titulonuvem5 + ',' + obj.iconenuvem6 + "," + obj.textonuvem6 + ',' + obj.titulonuvem6 + '" | split: "," %} {% include nuvem.html %}';
+        return '<section class="nuvem" id="serviços"> <div class="grid"> <div class="item"> <div class="cabecalho"> ' + obj.iconenuvem1 + ' <h3>' + obj.titulonuvem1 + '</h3> </div> <p>' + obj.textonuvem1 + '</p> </div> <div class="item"> <div class="cabecalho"> ' + obj.iconenuvem2 + ' <h3>' + obj.titulonuvem2 + '</h3> </div> <p>' + obj.textonuvem2 + '</p> </div> <div class="item"> <div class="cabecalho"> ' + obj.iconenuvem3 + ' <h3>' + obj.titulonuvem3 + '</h3> </div> <p>' + obj.textonuvem3 + '</p> </div> <div class="item"> <div class="cabecalho"> ' + obj.iconenuvem4 + ' <h3>' + obj.titulonuvem4 + '</h3> </div> <p>' + obj.textonuvem4 + '</p> </div> <div class="item"> <div class="cabecalho"> ' + obj.iconenuvem5 + ' <h3>' + obj.titulonuvem5 + '</h3> </div> <p>' + obj.textonuvem5 + '</p> </div> <div class="item"> <div class="cabecalho"> ' + obj.iconenuvem6 + ' <h3>' + obj.titulonuvem6 + '</h3> </div> <p>' + obj.textonuvem6 + '</p> </div> <div class="imagem"> <img src="/assets/imagens/imagem.png" alt="Consulta"> </div> </div></section>';
       }
     });
   </script>
 </body>
+
 </html>
