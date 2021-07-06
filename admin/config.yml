@@ -54,7 +54,7 @@ collections:
     files:
       - label: "Menu lateral"
         name: "menulateral"
-        file: "/_data/menu.yaml"
+        file: "/_data/menu.yml"
         fields:
           - label: Itens do menu
             name: itensmenu
