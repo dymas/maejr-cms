@@ -46,6 +46,7 @@ collections:
       - {label: "Título no banner", name: "bannertitle", widget: "string"}
       - {label: "Subtítulo", name: "bannersubtitle", widget: "string"}
       - {label: "Botão", name: "buttontext", widget: "string", required: false}
+      - {label: "Link do botão", name: "buttonlink", widget: "string", required: false}
       - {label: "Imagem de fundo", name: "bannerimage", widget: "image"}
       - {label: "Texto", name: "body", widget: "markdown"}
 
