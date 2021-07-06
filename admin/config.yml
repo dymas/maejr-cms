@@ -56,9 +56,10 @@ collections:
         name: "menulateral"
         file: "/_data/menu.yml"
         fields:
-          - label: Itens do menu
-            name: itensmenu
-            widget: list
+          - label: "Itens do menu"
+            name: "nav"
+            widget: "list"
+            label_singular: "item"
             allow_add: true
             collapsed: false
             fields:
