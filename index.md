@@ -14,6 +14,8 @@ bannerimage: /assets/imagens/leon-Oalh2MojUuk-unsplash.jpg
 
 <section class="bloco"> <p>Procurando por uma consultoria de qualidade?<br> Agende sua primeira consultoria!</p> <button><a href="#contato" >Agendar</a></button></section>
 
+<section class="bloco" id=""><h2></h2><p>Procurando por uma consultoria de qualidade?<br> Agende sua primeira consultoria!</p> <button><a href="#contato">Agendar</a></button></section>
+
 ## Processo de Consultoria
 
 <section class="cards" id="consultoria"> <div class="flex"> <div class="item"> <div class="cabecalho-item"> <i class="fas fa-users"></i> <h3>Diagnóstico</h3> </div> <p>Momento o qual o cliente conhece a MAE JR e o Gerente entende as necessidades do cliente para dar insumos a elaboração da proposta.</p> </div> <div class="item"> <div class="cabecalho-item"> <i class="fas fa-suitcase"></i> <h3>Proposta</h3> </div> <p>Documento responsável por descrever todos os objetivos do projetos, as etapas da metodologia, o cronograma, a equipe envolvida e o investimento necessário para execução do projeto.</p> </div> <div class="item"> <div class="cabecalho-item"> <i class="fas fa-clipboard-list"></i> <h3>Contrato</h3> </div> <p>As formas de pagamento são estabelecidas, um contrato de serviço é assinado e o projeto de consultoria é iniciado.</p> </div> <div class="item"> <div class="cabecalho-item"> <i class="fas fa-users-cog"></i> <h3>Execução</h3> </div> <p>Momento em que os consultores se envolvem no projeto e vivem a experiência de criar vantagens competitivas para os clientes.</p> </div> </div></section>
