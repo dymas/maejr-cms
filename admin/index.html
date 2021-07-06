@@ -15,6 +15,34 @@
   <script src="https://unpkg.com/netlify-cms@^2.0.0/dist/netlify-cms.js"></script>
 
   <script>
+    /* Separador */
+    CMS.registerEditorComponent({
+      id: "separador",
+      label: "Separador",
+      fields: [
+        {
+          label: "linha",
+          name: "linha",
+          widget: "hidden",
+          default: '<div class="space"></div>'
+        }
+      ],
+      pattern: /^<div class="space"><\/div>$/,
+      fromBlock: function (match) {
+        return {
+          linha: match[1]
+        };
+      },
+      toBlock: function (obj) {
+        return '<div class="space"></div>';
+      },
+      toPreview: function (obj) {
+        return (
+          '***'
+        );
+      }
+    });
+
     /* Bloco Azul */
     CMS.registerEditorComponent({
       id: "blocoazul",
@@ -88,7 +116,7 @@
           label: 'ID da Nuvem',
           name: 'idnuvem',
           widget: 'string',
-          default: ' '
+          default: ''
         },
         /* Item 1 */
         {
@@ -113,13 +141,13 @@
           label: 'Título do item 1',
           name: 'titulonuvem1',
           widget: 'string',
-          default: ' '
+          default: ''
         },
         {
           label: 'Texto do item 1',
           name: 'textonuvem1',
           widget: 'text',
-          default: ' '
+          default: ''
         },
         /* Item 2 */
         {
@@ -144,13 +172,13 @@
           label: 'Título do item 2',
           name: 'titulonuvem2',
           widget: 'string',
-          default: ' '
+          default: ''
         },
         {
           label: 'Texto do item 2',
           name: 'textonuvem2',
           widget: 'text',
-          default: ' '
+          default: ''
         },
         /* Item 3 */
         {
@@ -175,13 +203,13 @@
           label: 'Título do item 3',
           name: 'titulonuvem3',
           widget: 'string',
-          default: ' '
+          default: ''
         },
         {
           label: 'Texto do item 3',
           name: 'textonuvem3',
           widget: 'text',
-          default: ' '
+          default: ''
         },
         /* Item 4 */
         {
@@ -206,13 +234,13 @@
           label: 'Título do item 4',
           name: 'titulonuvem4',
           widget: 'string',
-          default: ' '
+          default: ''
         },
         {
           label: 'Texto do item 4',
           name: 'textonuvem4',
           widget: 'text',
-          default: ' '
+          default: ''
         },
         /* Item 5 */
         {
@@ -237,13 +265,13 @@
           label: 'Título do item 5',
           name: 'titulonuvem5',
           widget: 'string',
-          default: ' '
+          default: ''
         },
         {
           label: 'Texto do item 5',
           name: 'textonuvem5',
           widget: 'text',
-          default: ' '
+          default: ''
         },
         /* Item 6 */
         {
@@ -268,13 +296,13 @@
           label: 'Título do item 6',
           name: 'titulonuvem6',
           widget: 'string',
-          default: ' '
+          default: ''
         },
         {
           label: 'Texto do item 6',
           name: 'textonuvem6',
           widget: 'text',
-          default: ' '
+          default: ''
         }
       ],
       pattern: /^<section class="nuvem" id="(.*?)"> <div class="grid"> <div class="item"> <div class="cabecalho"> (.*?) <h3>(.*?)<\/h3> <\/div> <p>(.*?)<\/p> <\/div> <div class="item"> <div class="cabecalho"> (.*?) <h3>(.*?)<\/h3> <\/div> <p>(.*?)<\/p> <\/div> <div class="item"> <div class="cabecalho"> (.*?) <h3>(.*?)<\/h3> <\/div> <p>(.*?)<\/p> <\/div> <div class="item"> <div class="cabecalho"> (.*?) <h3>(.*?)<\/h3> <\/div> <p>(.*?)<\/p> <\/div> <div class="item"> <div class="cabecalho"> (.*?) <h3>(.*?)<\/h3> <\/div> <p>(.*?)<\/p> <\/div> <div class="item"> <div class="cabecalho"> (.*?) <h3>(.*?)<\/h3> <\/div> <p>(.*?)<\/p> <\/div> <div class="imagem"> <img src="\/assets\/imagens\/imagem.png" alt="Consulta"> <\/div> <\/div><\/section>*$/,
@@ -320,7 +348,9 @@
         {
           label: 'ID dos Cards',
           name: 'idcards',
-          widget: 'string'
+          widget: 'string',
+          required: false,
+          default: ''
         },
         /* Item 1 */
         {
@@ -345,13 +375,13 @@
           label: 'Título do item 1',
           name: 'titulocards1',
           widget: 'string',
-          default: ' '
+          default: ''
         },
         {
           label: 'Texto do item 1',
           name: 'textocards1',
           widget: 'text',
-          default: ' '
+          default: ''
         },
         /* Item 2 */
         {
@@ -376,13 +406,13 @@
           label: 'Título do item 2',
           name: 'titulocards2',
           widget: 'string',
-          default: ' '
+          default: ''
         },
         {
           label: 'Texto do item 2',
           name: 'textocards2',
           widget: 'text',
-          default: ' '
+          default: ''
         },
         /* Item 3 */
         {
@@ -407,13 +437,13 @@
           label: 'Título do item 3',
           name: 'titulocards3',
           widget: 'string',
-          default: ' '
+          default: ''
         },
         {
           label: 'Texto do item 3',
           name: 'textocards3',
           widget: 'text',
-          default: ' '
+          default: ''
         },
         /* Item 4 */
         {
@@ -438,13 +468,13 @@
           label: 'Título do item 4',
           name: 'titulocards4',
           widget: 'string',
-          default: ' '
+          default: ''
         },
         {
           label: 'Texto do item 4',
           name: 'textocards4',
           widget: 'text',
-          default: ' '
+          default: ''
         }
       ],
       pattern: /^<section class="cards" id="(.*?)"> <div class="flex"> <div class="item"> <div class="cabecalho-item"> (.*?) <h3>(.*?)<\/h3> <\/div> <p>(.*?)<\/p> <\/div> <div class="item"> <div class="cabecalho-item"> (.*?) <h3>(.*?)<\/h3> <\/div> <p>(.*?)<\/p> <\/div> <div class="item"> <div class="cabecalho-item"> (.*?) <h3>(.*?)<\/h3> <\/div> <p>(.*?)<\/p> <\/div> <div class="item"> <div class="cabecalho-item"> (.*?) <h3>(.*?)<\/h3> <\/div> <p>(.*?)<\/p> <\/div> <\/div><\/section>*$/,
@@ -473,7 +503,7 @@
         return '<section class="cards" id="' + obj.idcards + '"> <div class="flex"> <div class="item"> <div class="cabecalho-item"> ' + obj.iconecards1 + ' <h3>' + obj.titulocards1 + '</h3> </div> <p>' + obj.textocards1 + '</p> </div> <div class="item"> <div class="cabecalho-item"> ' + obj.iconecards2 + ' <h3>' + obj.titulocards2 + '</h3> </div> <p>' + obj.textocards2 + '</p> </div> <div class="item"> <div class="cabecalho-item"> ' + obj.iconecards3 + ' <h3>' + obj.titulocards3 + '</h3> </div> <p>' + obj.textocards3 + '</p> </div> <div class="item"> <div class="cabecalho-item"> ' + obj.iconecards4 + ' <h3>' + obj.titulocards4 + '</h3> </div> <p>' + obj.textocards4 + '</p> </div> </div></section>';
       }
     });
-  
+
     /* Diretoria */
     CMS.registerEditorComponent({
       id: "diretoria",
@@ -503,7 +533,7 @@
           name: 'cargodiretoria1',
           widget: 'string',
           default: ''
-          
+
         },
         /* Item 2 */
         {
@@ -586,7 +616,42 @@
         };
       },
       toBlock: function (obj) {
-        return '<section class="minicards" id="' + obj.iddiretoria  + '"> <div class="corpo-minicards"> <div class="item-minicards"> <div class="minicards-imagem"> <img src="' + obj.imagemdiretoria1 + '"> </div> <div class="descricao-minicards"> <h3 class="titulo-item-minicards">' + obj.nomediretoria1 + '</h3> <p class="cargo-minicards">' + obj.cargodiretoria1 + '</p> </div> </div> <div class="item-minicards"> <div class="minicards-imagem"> <img src="' + obj.imagemdiretoria2 + '"> </div> <div class="descricao-minicards"> <h3 class="titulo-item-minicards">' + obj.nomediretoria2 + '</h3> <p class="cargo-minicards">' + obj.cargodiretoria2 + '</p> </div> </div> <div class="item-minicards"> <div class="minicards-imagem"> <img src="' + obj.imagemdiretoria3 + '"> </div> <div class="descricao-minicards"> <h3 class="titulo-item-minicards">' + obj.nomediretoria3 + '</h3> <p class="cargo-minicards">' + obj.cargodiretoria3 + '</p> </div> </div> <div class="item-minicards"> <div class="minicards-imagem"> <img src="' + obj.imagemdiretoria4 + '"> </div> <div class="descricao-minicards"> <h3 class="titulo-item-minicards">' + obj.nomediretoria4 + '</h3> <p class="cargo-minicards">' + obj.cargodiretoria4 + '</p> </div> </div> </div></section>';
+        return '<section class="minicards" id="' + obj.iddiretoria + '"> <div class="corpo-minicards"> <div class="item-minicards"> <div class="minicards-imagem"> <img src="' + obj.imagemdiretoria1 + '"> </div> <div class="descricao-minicards"> <h3 class="titulo-item-minicards">' + obj.nomediretoria1 + '</h3> <p class="cargo-minicards">' + obj.cargodiretoria1 + '</p> </div> </div> <div class="item-minicards"> <div class="minicards-imagem"> <img src="' + obj.imagemdiretoria2 + '"> </div> <div class="descricao-minicards"> <h3 class="titulo-item-minicards">' + obj.nomediretoria2 + '</h3> <p class="cargo-minicards">' + obj.cargodiretoria2 + '</p> </div> </div> <div class="item-minicards"> <div class="minicards-imagem"> <img src="' + obj.imagemdiretoria3 + '"> </div> <div class="descricao-minicards"> <h3 class="titulo-item-minicards">' + obj.nomediretoria3 + '</h3> <p class="cargo-minicards">' + obj.cargodiretoria3 + '</p> </div> </div> <div class="item-minicards"> <div class="minicards-imagem"> <img src="' + obj.imagemdiretoria4 + '"> </div> <div class="descricao-minicards"> <h3 class="titulo-item-minicards">' + obj.nomediretoria4 + '</h3> <p class="cargo-minicards">' + obj.cargodiretoria4 + '</p> </div> </div> </div></section>';
+      }
+    });
+
+    /* Contato */
+    CMS.registerEditorComponent({
+      id: "separador",
+      label: "Separador",
+      fields: [
+        {
+          label: "Coordenadas",
+          name: "coordenadas",
+          widget: "string",
+          default: '-0, -0'
+        },
+        {
+          label: "Texto",
+          name: "textocontato",
+          widget: "markdown",
+          default: '',
+        },
+      ],
+      pattern: /^<div class="container-contato"> <form class="formulario" data-np-checked="1" data-netlify="true"> <div class="container-form-esquerda"> <input class="input" type="text" placeholder="* Nome" data-np-checked="1"> <input class="input" type="email" placeholder="* E-mail" data-np-checked="1"> <input class="input" type="tel" placeholder="* Telefone" data-np-checked="1"> <input class="input" type="text" placeholder="* Assunto" data-np-checked="1"> <\/div> <div class="container-form-direita"> <textarea class="input mensagem" placeholder="* Sua mensagem..."><\/textarea> <button class="button-form">Enviar<\/button> <\/div> <\/form> <div style="flex: 1 1 45%; max-width: 300px;"> <div class="mapouter"> <div class="gmap_canvas"> <iframe width="300" height="300" id="gmap_canvas" src="https:\/\/maps.google.com\/maps?q=(.*?)&amp;t=&amp;z=15&amp;ie=UTF8&amp;iwloc=&amp;output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"><\/iframe> <style> .mapouter { position: relative; text-align: right; height: 300px; width: 300px; } .gmap_canvas { overflow: hidden; background: none !important; height: 300px; width: 300px; } <\/style> <\/div> <\/div><\/div> <div class="endereco-telefone"> <p>(.*?)<\/p> <\/div><\/div>$/,
+      fromBlock: function (match) {
+        return {
+          coordenadas: match[1],
+          textocontato: match[2]
+        };
+      },
+      toBlock: function (obj) {
+        return '<div class="container-contato"> <form class="formulario" data-np-checked="1" data-netlify="true"> <div class="container-form-esquerda"> <input class="input" type="text" placeholder="* Nome" data-np-checked="1"> <input class="input" type="email" placeholder="* E-mail" data-np-checked="1"> <input class="input" type="tel" placeholder="* Telefone" data-np-checked="1"> <input class="input" type="text" placeholder="* Assunto" data-np-checked="1"> </div> <div class="container-form-direita"> <textarea class="input mensagem" placeholder="* Sua mensagem..."></textarea> <button class="button-form">Enviar</button> </div> </form> <div style="flex: 1 1 45%; max-width: 300px;"> <div class="mapouter"> <div class="gmap_canvas"> <iframe width="300" height="300" id="gmap_canvas" src="https://maps.google.com/maps?q=' + obj.coordenadas + '&amp;t=&amp;z=15&amp;ie=UTF8&amp;iwloc=&amp;output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe> <style> .mapouter { position: relative; text-align: right; height: 300px; width: 300px; } .gmap_canvas { overflow: hidden; background: none !important; height: 300px; width: 300px; } </style> </div> </div></div> <div class="endereco-telefone"> <p>' + obj.textocontato + '</p> </div></div>';
+      },
+      toPreview: function (obj) {
+        return (
+          ''
+        );
       }
     });
   </script>
