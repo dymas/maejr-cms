@@ -51,12 +51,14 @@
         {
           label: 'Título do bloco',
           name: 'titulobloco',
-          widget: 'string'
+          widget: 'string',
+          default: ''
         },
         {
           label: 'Texto do bloco',
           name: 'textobloco',
-          widget: 'string'
+          widget: 'string',
+          default: ''
         },
         {
           label: "Ícone",
@@ -101,12 +103,14 @@
         {
           label: 'Título do bloco',
           name: 'titulobloco',
-          widget: 'string'
+          widget: 'string',
+          default: ''
         },
         {
           label: 'Texto do bloco',
           name: 'textobloco',
-          widget: 'string'
+          widget: 'string',
+          default: ''
         },
         {
           label: 'Botão',
@@ -145,7 +149,7 @@
       fields: [
         {
           label: "Ícone",
-          name: "iconebloco",
+          name: "iconelink1",
           widget: "select",
           options: [
             { label: "Universidade", value: '<i class="fas fa-university"></i>' },
@@ -164,21 +168,77 @@
         },
         {
           label: 'Link do ícone',
-          name: 'linkicone',
+          name: 'linkicone1',
+          widget: 'string',
+          required: false,
+          default: ''
+        },
+        {
+          label: "Ícone",
+          name: "iconelink2",
+          widget: "select",
+          options: [
+            { label: "Universidade", value: '<i class="fas fa-university"></i>' },
+            { label: "Pessoas", value: '<i class="fas fa-users"></i>' },
+            { label: "Lupa", value: '<i class="fas fa-search"></i>' },
+            { label: 'Prancheta', value: '<i class="fas fa-clipboard-list"></i>' },
+            { label: 'Maleta com relógio', value: '<i class="fas fa-business-time"></i>' },
+            { label: 'Foguete', value: '<i class="fas fa-rocket"></i>' },
+            { label: 'Maleta', value: '<i class="fas fa-suitcase"></i>' },
+            { label: 'Pessoas (engrenagem)', value: '<i class="fas fa-users-cog"></i>' },
+            { label: 'Ícone do PDF', value: '<i class="fas fa-file-pdf"></i>' },
+            { label: 'Nenhum', value: ' ' }
+          ],
+          default: [' '],
+          required: false
+        },
+        {
+          label: 'Link do ícone',
+          name: 'linkicone2',
+          widget: 'string',
+          required: false,
+          default: ''
+        },
+        {
+          label: "Ícone",
+          name: "iconelink3",
+          widget: "select",
+          options: [
+            { label: "Universidade", value: '<i class="fas fa-university"></i>' },
+            { label: "Pessoas", value: '<i class="fas fa-users"></i>' },
+            { label: "Lupa", value: '<i class="fas fa-search"></i>' },
+            { label: 'Prancheta', value: '<i class="fas fa-clipboard-list"></i>' },
+            { label: 'Maleta com relógio', value: '<i class="fas fa-business-time"></i>' },
+            { label: 'Foguete', value: '<i class="fas fa-rocket"></i>' },
+            { label: 'Maleta', value: '<i class="fas fa-suitcase"></i>' },
+            { label: 'Pessoas (engrenagem)', value: '<i class="fas fa-users-cog"></i>' },
+            { label: 'Ícone do PDF', value: '<i class="fas fa-file-pdf"></i>' },
+            { label: 'Nenhum', value: ' ' }
+          ],
+          default: [' '],
+          required: false
+        },
+        {
+          label: 'Link do ícone',
+          name: 'linkicone3',
           widget: 'string',
           required: false,
           default: ''
         }
       ],
-      pattern: /^<a class="url-pdf" href="(.*?)">(.*?)<\/a>$/,
+      pattern: /^<section class="bloco"><a class="url-pdf" href="(.*?)">(.*?)<\/a><a class="url-pdf" href="(.*?)">(.*?)<\/a><a class="url-pdf" href="(.*?)">(.*?)<\/a><\/section>$/,
       fromBlock: function (match) {
         return {
-          linkicone: match[1],
-          iconebloco: match[2]
+          linkicone1: match[1],
+          iconelink1: match[2],
+          linkicone2: match[3],
+          iconelink2: match[4],
+          linkicone3: match[5],
+          iconelink3: match[6]
         };
       },
       toBlock: function (obj) {
-        return '<a class="url-pdf" href="' + obj.linkicone + '">' + obj.iconebloco + '<\/a>';
+        return '<section class="bloco"><a class="url-pdf" href="' + obj.linkicone1 + '">' + obj.iconebloco1 + '</a><a class="url-pdf" href="' + obj.linkicone2 + '">' + obj.iconebloco2 + '</a><a class="url-pdf" href="' + obj.linkicone3 + '">' + obj.iconebloco3 + '</a></section>';
       },
       toPreview: function (obj) {
         return '';
@@ -712,7 +772,7 @@
         {
           label: "Texto",
           name: "textocontato",
-          widget: "text",
+          widget: "string",
           default: '',
         },
       ],
