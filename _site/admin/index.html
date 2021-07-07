@@ -142,10 +142,10 @@
       }
     });
 
-    /* Ícone com link */
+    /* Ícones com link */
     CMS.registerEditorComponent({
-      id: "iconelink",
-      label: "Ícone com Link",
+      id: "iconeslink",
+      label: "Ícones com Link",
       fields: [
         {
           label: "Ícone",
@@ -238,7 +238,7 @@
         };
       },
       toBlock: function (obj) {
-        return '<section class="bloco"><a class="url-pdf" href="' + obj.linkicone1 + '">' + obj.iconebloco1 + '</a><a class="url-pdf" href="' + obj.linkicone2 + '">' + obj.iconebloco2 + '</a><a class="url-pdf" href="' + obj.linkicone3 + '">' + obj.iconebloco3 + '</a></section>';
+        return '<section class="bloco"><a class="url-pdf" href="' + obj.linkicone1 + '">' + obj.iconelink1 + '</a><a class="url-pdf" href="' + obj.linkicone2 + '">' + obj.iconelink2 + '</a><a class="url-pdf" href="' + obj.linkicone3 + '">' + obj.iconelink3 + '</a></section>';
       },
       toPreview: function (obj) {
         return '';
