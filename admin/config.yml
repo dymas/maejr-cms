@@ -3,6 +3,7 @@ backend:
   branch: main
 
 locale: pt
+publish_mode: editorial_workflow
 media_folder: "/assets/imagens/uploads"
 logo_url: "/assets/imagens/cmsimage.png"
 site_url: https://amazing-joliot-be8aab.netlify.app

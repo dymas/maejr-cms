@@ -3,6 +3,7 @@ backend:
   branch: main
 
 locale: pt
+publish_mode: editorial_workflow
 media_folder: "/assets/imagens/uploads"
 logo_url: "/assets/imagens/cmsimage.png"
 site_url: https://amazing-joliot-be8aab.netlify.app
@@ -46,8 +47,30 @@ collections:
       - {label: "Título no banner", name: "bannertitle", widget: "string"}
       - {label: "Subtítulo", name: "bannersubtitle", widget: "string"}
       - {label: "Botão", name: "buttontext", widget: "string", required: false}
+      - {label: "Link do botão", name: "buttonlink", widget: "string", required: false}
       - {label: "Imagem de fundo", name: "bannerimage", widget: "image"}
       - {label: "Texto", name: "body", widget: "markdown"}
-
+  - label: "Configurações"
+    name: "configuracoes"
+    files:
+      - label: "Menu lateral"
+        name: "menulateral"
+        file: "/_data/menu.yml"
+        fields:
+          - label: "Itens do menu"
+            name: "nav"
+            widget: "list"
+            label_singular: "item"
+            allow_add: true
+            collapsed: false
+            fields:
+              - { label: "Título", name: "title", widget: "string" }
+              - { label: "URL", name: "url", widget: "string" }
+      - label: "Nome e descrição"
+        name: "metaconfigs"
+        file: "/_config.yml"
+        fields:
+          - { label: "Nome", name: "title", widget: "string" }
+          - { label: "Descrição", name: "description", widget: "string" }
 editor:
   preview: false

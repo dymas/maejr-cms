@@ -15,6 +15,34 @@
   <script src="https://unpkg.com/netlify-cms@^2.0.0/dist/netlify-cms.js"></script>
 
   <script>
+    /* Separador */
+    CMS.registerEditorComponent({
+      id: "separador",
+      label: "Separador",
+      fields: [
+        {
+          label: "linha",
+          name: "linha",
+          widget: "hidden",
+          default: '<div class="space"></div>'
+        }
+      ],
+      pattern: /^<div class="space"><\/div>$/,
+      fromBlock: function (match) {
+        return {
+          linha: match[1]
+        };
+      },
+      toBlock: function (obj) {
+        return '<div class="space"></div>';
+      },
+      toPreview: function (obj) {
+        return (
+          '***'
+        );
+      }
+    });
+
     /* Bloco Azul */
     CMS.registerEditorComponent({
       id: "blocoazul",
@@ -28,7 +56,7 @@
         {
           label: 'Texto do bloco',
           name: 'textobloco',
-          widget: 'text'
+          widget: 'string'
         },
         {
           label: "Ícone",
@@ -43,8 +71,10 @@
             { label: 'Foguete', value: '<i class="fas fa-rocket"></i>' },
             { label: 'Maleta', value: '<i class="fas fa-suitcase"></i>' },
             { label: 'Pessoas (engrenagem)', value: '<i class="fas fa-users-cog"></i>' },
-            { label: 'Ícone do PDF', value: '<i class="fas fa-file-pdf"></i>' }
+            { label: 'Ícone do PDF', value: '<i class="fas fa-file-pdf"></i>' },
+            { label: 'Nenhum', value: ' ' }
           ],
+          default: [' '],
           required: false
         }
       ],
@@ -53,11 +83,105 @@
         return {
           titulobloco: match[1],
           textobloco: match[3],
-          iconebloco: match[4]
+          iconebloco: match[4],
+          linkbloco: match[5],
+          botaobloco: match[6]
         };
       },
       toBlock: function (obj) {
         return '<section class="bloco" id="' + obj.titulobloco + '"><h2>' + obj.titulobloco + '</h2><p>' + obj.textobloco + '</p>' + obj.iconebloco + '</section>';
+      }
+    });
+
+    /* Bloco Azul com Botão */
+    CMS.registerEditorComponent({
+      id: "blocoazulbotao",
+      label: "Bloco Azul com Botão",
+      fields: [
+        {
+          label: 'Título do bloco',
+          name: 'titulobloco',
+          widget: 'string'
+        },
+        {
+          label: 'Texto do bloco',
+          name: 'textobloco',
+          widget: 'string'
+        },
+        {
+          label: 'Botão',
+          name: 'botaobloco',
+          widget: 'string',
+          required: false,
+          default: ''
+        },
+        {
+          label: 'Link do botão',
+          name: 'linkbloco',
+          widget: 'string',
+          required: false,
+          default: ''
+        }
+      ],
+      pattern: /^<section class="bloco" id="(.*)"><h2>(.*)<\/h2><p>(.*)<\/p>(.*)<button><a href="(.*?)">(.*?)<\/a><\/button><\/section>*$/,
+      fromBlock: function (match) {
+        return {
+          titulobloco: match[1],
+          textobloco: match[3],
+          iconebloco: match[4],
+          linkbloco: match[5],
+          botaobloco: match[6]
+        };
+      },
+      toBlock: function (obj) {
+        return '<section class="bloco" id="' + obj.titulobloco + '"><h2>' + obj.titulobloco + '</h2><p>' + obj.textobloco + '</p>' + obj.iconebloco + '<button><a href="' + obj.linkbloco + '">' + obj.botaobloco + '</a></button></section>';
+      }
+    });
+
+    /* Ícone com link */
+    CMS.registerEditorComponent({
+      id: "iconelink",
+      label: "Ícone com Link",
+      fields: [
+        {
+          label: "Ícone",
+          name: "iconebloco",
+          widget: "select",
+          options: [
+            { label: "Universidade", value: '<i class="fas fa-university"></i>' },
+            { label: "Pessoas", value: '<i class="fas fa-users"></i>' },
+            { label: "Lupa", value: '<i class="fas fa-search"></i>' },
+            { label: 'Prancheta', value: '<i class="fas fa-clipboard-list"></i>' },
+            { label: 'Maleta com relógio', value: '<i class="fas fa-business-time"></i>' },
+            { label: 'Foguete', value: '<i class="fas fa-rocket"></i>' },
+            { label: 'Maleta', value: '<i class="fas fa-suitcase"></i>' },
+            { label: 'Pessoas (engrenagem)', value: '<i class="fas fa-users-cog"></i>' },
+            { label: 'Ícone do PDF', value: '<i class="fas fa-file-pdf"></i>' },
+            { label: 'Nenhum', value: ' ' }
+          ],
+          default: [' '],
+          required: false
+        },
+        {
+          label: 'Link do ícone',
+          name: 'linkicone',
+          widget: 'string',
+          required: false,
+          default: ''
+        }
+      ],
+      pattern: /^<a class="url-pdf" href="(.*?)">(.*?)<\/a>$/,
+      fromBlock: function (match) {
+        return {
+          linkicone: match[1],
+          iconebloco: match[2]
+        };
+      },
+      toBlock: function (obj) {
+        return '<a class="url-pdf" href="' + obj.linkicone + '">' + obj.iconebloco + '<\/a>';
+      },
+      toPreview: function (obj) {
+        return '';
       }
     });
 
@@ -66,6 +190,12 @@
       id: "nuvem",
       label: "Nuvem",
       fields: [
+        {
+          label: 'ID da Nuvem',
+          name: 'idnuvem',
+          widget: 'string',
+          default: ''
+        },
         /* Item 1 */
         {
           label: "Ícone do item 1",
@@ -80,19 +210,22 @@
             { label: 'Foguete', value: '<i class="fas fa-rocket"></i>' },
             { label: 'Maleta', value: '<i class="fas fa-suitcase"></i>' },
             { label: 'Pessoas (engrenagem)', value: '<i class="fas fa-users-cog"></i>' },
-            { label: 'Ícone do PDF', value: '<i class="fas fa-file-pdf"></i>' }
+            { label: 'Ícone do PDF', value: '<i class="fas fa-file-pdf"></i>' },
+            { label: 'Nenhum', value: ' ' }
           ],
-          default: ['<i class="fas fa-university"></i>']
+          default: [' ']
         },
         {
           label: 'Título do item 1',
           name: 'titulonuvem1',
-          widget: 'string'
+          widget: 'string',
+          default: ''
         },
         {
           label: 'Texto do item 1',
           name: 'textonuvem1',
-          widget: 'string'
+          widget: 'string',
+          default: ''
         },
         /* Item 2 */
         {
@@ -108,19 +241,22 @@
             { label: 'Foguete', value: '<i class="fas fa-rocket"></i>' },
             { label: 'Maleta', value: '<i class="fas fa-suitcase"></i>' },
             { label: 'Pessoas (engrenagem)', value: '<i class="fas fa-users-cog"></i>' },
-            { label: 'Ícone do PDF', value: '<i class="fas fa-file-pdf"></i>' }
+            { label: 'Ícone do PDF', value: '<i class="fas fa-file-pdf"></i>' },
+            { label: 'Nenhum', value: ' ' }
           ],
-          default: ['<i class="fas fa-university"></i>']
+          default: [' ']
         },
         {
           label: 'Título do item 2',
           name: 'titulonuvem2',
           widget: 'string',
+          default: ''
         },
         {
           label: 'Texto do item 2',
           name: 'textonuvem2',
-          widget: 'string'
+          widget: 'string',
+          default: ''
         },
         /* Item 3 */
         {
@@ -136,19 +272,22 @@
             { label: 'Foguete', value: '<i class="fas fa-rocket"></i>' },
             { label: 'Maleta', value: '<i class="fas fa-suitcase"></i>' },
             { label: 'Pessoas (engrenagem)', value: '<i class="fas fa-users-cog"></i>' },
-            { label: 'Ícone do PDF', value: '<i class="fas fa-file-pdf"></i>' }
+            { label: 'Ícone do PDF', value: '<i class="fas fa-file-pdf"></i>' },
+            { label: 'Nenhum', value: ' ' }
           ],
-          default: ['<i class="fas fa-university"></i>']
+          default: [' ']
         },
         {
           label: 'Título do item 3',
           name: 'titulonuvem3',
-          widget: 'string'
+          widget: 'string',
+          default: ''
         },
         {
           label: 'Texto do item 3',
           name: 'textonuvem3',
-          widget: 'string'
+          widget: 'string',
+          default: ''
         },
         /* Item 4 */
         {
@@ -164,19 +303,22 @@
             { label: 'Foguete', value: '<i class="fas fa-rocket"></i>' },
             { label: 'Maleta', value: '<i class="fas fa-suitcase"></i>' },
             { label: 'Pessoas (engrenagem)', value: '<i class="fas fa-users-cog"></i>' },
-            { label: 'Ícone do PDF', value: '<i class="fas fa-file-pdf"></i>' }
+            { label: 'Ícone do PDF', value: '<i class="fas fa-file-pdf"></i>' },
+            { label: 'Nenhum', value: ' ' }
           ],
-          default: ['<i class="fas fa-university"></i>']
+          default: [' ']
         },
         {
           label: 'Título do item 4',
           name: 'titulonuvem4',
-          widget: 'string'
+          widget: 'string',
+          default: ''
         },
         {
           label: 'Texto do item 4',
           name: 'textonuvem4',
-          widget: 'string'
+          widget: 'string',
+          default: ''
         },
         /* Item 5 */
         {
@@ -192,19 +334,22 @@
             { label: 'Foguete', value: '<i class="fas fa-rocket"></i>' },
             { label: 'Maleta', value: '<i class="fas fa-suitcase"></i>' },
             { label: 'Pessoas (engrenagem)', value: '<i class="fas fa-users-cog"></i>' },
-            { label: 'Ícone do PDF', value: '<i class="fas fa-file-pdf"></i>' }
+            { label: 'Ícone do PDF', value: '<i class="fas fa-file-pdf"></i>' },
+            { label: 'Nenhum', value: ' ' }
           ],
-          default: ['<i class="fas fa-university"></i>']
+          default: [' ']
         },
         {
           label: 'Título do item 5',
           name: 'titulonuvem5',
-          widget: 'string'
+          widget: 'string',
+          default: ''
         },
         {
           label: 'Texto do item 5',
           name: 'textonuvem5',
-          widget: 'string'
+          widget: 'string',
+          default: ''
         },
         /* Item 6 */
         {
@@ -220,52 +365,371 @@
             { label: 'Foguete', value: '<i class="fas fa-rocket"></i>' },
             { label: 'Maleta', value: '<i class="fas fa-suitcase"></i>' },
             { label: 'Pessoas (engrenagem)', value: '<i class="fas fa-users-cog"></i>' },
-            { label: 'Ícone do PDF', value: '<i class="fas fa-file-pdf"></i>' }
+            { label: 'Ícone do PDF', value: '<i class="fas fa-file-pdf"></i>' },
+            { label: 'Nenhum', value: ' ' }
           ],
-          default: ['<i class="fas fa-university"></i>']
+          default: [' ']
         },
         {
           label: 'Título do item 6',
           name: 'titulonuvem6',
-          widget: 'string'
+          widget: 'string',
+          default: ''
         },
         {
           label: 'Texto do item 6',
           name: 'textonuvem6',
-          widget: 'string'
+          widget: 'string',
+          default: ''
         }
       ],
-      pattern: /^<section class="nuvem" id="serviços"> <div class="grid"> <div class="item"> <div class="cabecalho"> (.*?) <h3>(.*?)<\/h3> <\/div> <p>(.*?)<\/p> <\/div> <div class="item"> <div class="cabecalho"> (.*?) <h3>(.*?)<\/h3> <\/div> <p>(.*?)<\/p> <\/div> <div class="item"> <div class="cabecalho"> (.*?) <h3>(.*?)<\/h3> <\/div> <p>(.*?)<\/p> <\/div> <div class="item"> <div class="cabecalho"> (.*?) <h3>(.*?)<\/h3> <\/div> <p>(.*?)<\/p> <\/div> <div class="item"> <div class="cabecalho"> (.*?) <h3>(.*?)<\/h3> <\/div> <p>(.*?)<\/p> <\/div> <div class="item"> <div class="cabecalho"> (.*?) <h3>(.*?)<\/h3> <\/div> <p>(.*?)<\/p> <\/div> <div class="imagem"> <img src="\/assets\/imagens\/imagem.png" alt="Consulta"> <\/div> <\/div><\/section>*$/,
+      pattern: /^<section class="nuvem" id="(.*?)"> <div class="grid"> <div class="item"> <div class="cabecalho"> (.*?) <h3>(.*?)<\/h3> <\/div> <p>(.*?)<\/p> <\/div> <div class="item"> <div class="cabecalho"> (.*?) <h3>(.*?)<\/h3> <\/div> <p>(.*?)<\/p> <\/div> <div class="item"> <div class="cabecalho"> (.*?) <h3>(.*?)<\/h3> <\/div> <p>(.*?)<\/p> <\/div> <div class="item"> <div class="cabecalho"> (.*?) <h3>(.*?)<\/h3> <\/div> <p>(.*?)<\/p> <\/div> <div class="item"> <div class="cabecalho"> (.*?) <h3>(.*?)<\/h3> <\/div> <p>(.*?)<\/p> <\/div> <div class="item"> <div class="cabecalho"> (.*?) <h3>(.*?)<\/h3> <\/div> <p>(.*?)<\/p> <\/div> <div class="imagem"> <img src="\/assets\/imagens\/imagem.png" alt="Consulta"> <\/div> <\/div><\/section>*$/,
       fromBlock: function (match) {
         return {
+          idnuvem: match[1],
           /* Item 1 */
-          iconenuvem1: match[1],
-          titulonuvem1: match[2],
-          textonuvem1: match[3],
+          iconenuvem1: match[2],
+          titulonuvem1: match[3],
+          textonuvem1: match[4],
           /* Item 2 */
-          iconenuvem2: match[4],
-          titulonuvem2: match[5],
-          textonuvem2: match[6],
+          iconenuvem2: match[5],
+          titulonuvem2: match[6],
+          textonuvem2: match[7],
           /* Item 3 */
-          iconenuvem3: match[7],
-          titulonuvem3: match[8],
-          textonuvem3: match[9],
+          iconenuvem3: match[8],
+          titulonuvem3: match[9],
+          textonuvem3: match[10],
           /* Item 4 */
-          iconenuvem4: match[10],
-          titulonuvem4: match[11],
-          textonuvem4: match[12],
+          iconenuvem4: match[11],
+          titulonuvem4: match[12],
+          textonuvem4: match[13],
           /* Item 5 */
-          iconenuvem5: match[13],
-          titulonuvem5: match[14],
-          textonuvem5: match[15],
+          iconenuvem5: match[14],
+          titulonuvem5: match[15],
+          textonuvem5: match[16],
           /* Item 6 */
-          iconenuvem6: match[16],
-          titulonuvem6: match[17],
-          textonuvem6: match[18]
+          iconenuvem6: match[17],
+          titulonuvem6: match[18],
+          textonuvem6: match[19]
         };
       },
       toBlock: function (obj) {
-        return '<section class="nuvem" id="serviços"> <div class="grid"> <div class="item"> <div class="cabecalho"> ' + obj.iconenuvem1 + ' <h3>' + obj.titulonuvem1 + '</h3> </div> <p>' + obj.textonuvem1 + '</p> </div> <div class="item"> <div class="cabecalho"> ' + obj.iconenuvem2 + ' <h3>' + obj.titulonuvem2 + '</h3> </div> <p>' + obj.textonuvem2 + '</p> </div> <div class="item"> <div class="cabecalho"> ' + obj.iconenuvem3 + ' <h3>' + obj.titulonuvem3 + '</h3> </div> <p>' + obj.textonuvem3 + '</p> </div> <div class="item"> <div class="cabecalho"> ' + obj.iconenuvem4 + ' <h3>' + obj.titulonuvem4 + '</h3> </div> <p>' + obj.textonuvem4 + '</p> </div> <div class="item"> <div class="cabecalho"> ' + obj.iconenuvem5 + ' <h3>' + obj.titulonuvem5 + '</h3> </div> <p>' + obj.textonuvem5 + '</p> </div> <div class="item"> <div class="cabecalho"> ' + obj.iconenuvem6 + ' <h3>' + obj.titulonuvem6 + '</h3> </div> <p>' + obj.textonuvem6 + '</p> </div> <div class="imagem"> <img src="/assets/imagens/imagem.png" alt="Consulta"> </div> </div></section>';
+        return '<section class="nuvem" id="' + obj.idnuvem + '"> <div class="grid"> <div class="item"> <div class="cabecalho"> ' + obj.iconenuvem1 + ' <h3>' + obj.titulonuvem1 + '</h3> </div> <p>' + obj.textonuvem1 + '</p> </div> <div class="item"> <div class="cabecalho"> ' + obj.iconenuvem2 + ' <h3>' + obj.titulonuvem2 + '</h3> </div> <p>' + obj.textonuvem2 + '</p> </div> <div class="item"> <div class="cabecalho"> ' + obj.iconenuvem3 + ' <h3>' + obj.titulonuvem3 + '</h3> </div> <p>' + obj.textonuvem3 + '</p> </div> <div class="item"> <div class="cabecalho"> ' + obj.iconenuvem4 + ' <h3>' + obj.titulonuvem4 + '</h3> </div> <p>' + obj.textonuvem4 + '</p> </div> <div class="item"> <div class="cabecalho"> ' + obj.iconenuvem5 + ' <h3>' + obj.titulonuvem5 + '</h3> </div> <p>' + obj.textonuvem5 + '</p> </div> <div class="item"> <div class="cabecalho"> ' + obj.iconenuvem6 + ' <h3>' + obj.titulonuvem6 + '</h3> </div> <p>' + obj.textonuvem6 + '</p> </div> <div class="imagem"> <img src="/assets/imagens/imagem.png" alt="Consulta"> </div> </div></section>';
+      }
+    });
+
+    /* Cards */
+    CMS.registerEditorComponent({
+      id: "cards",
+      label: "Cards",
+      fields: [
+        {
+          label: 'ID dos Cards',
+          name: 'idcards',
+          widget: 'string',
+          required: false,
+          default: ''
+        },
+        /* Item 1 */
+        {
+          label: "Ícone do item 1",
+          name: "iconecards1",
+          widget: "select",
+          options: [
+            { label: 'Universidade', value: '<i class="fas fa-university"></i>' },
+            { label: 'Pessoas', value: '<i class="fas fa-users"></i>' },
+            { label: 'Lupa', value: '<i class="fas fa-search"></i>' },
+            { label: 'Prancheta', value: '<i class="fas fa-clipboard-list"></i>' },
+            { label: 'Maleta com relógio', value: '<i class="fas fa-business-time"></i>' },
+            { label: 'Foguete', value: '<i class="fas fa-rocket"></i>' },
+            { label: 'Maleta', value: '<i class="fas fa-suitcase"></i>' },
+            { label: 'Pessoas (engrenagem)', value: '<i class="fas fa-users-cog"></i>' },
+            { label: 'Ícone do PDF', value: '<i class="fas fa-file-pdf"></i>' },
+            { label: 'Nenhum', value: ' ' }
+          ],
+          default: [' ']
+        },
+        {
+          label: 'Título do item 1',
+          name: 'titulocards1',
+          widget: 'string',
+          default: ''
+        },
+        {
+          label: 'Texto do item 1',
+          name: 'textocards1',
+          widget: 'string',
+          default: ''
+        },
+        /* Item 2 */
+        {
+          label: "Ícone do item 2",
+          name: "iconecards2",
+          widget: "select",
+          options: [
+            { label: "Universidade", value: '<i class="fas fa-university"></i>' },
+            { label: "Pessoas", value: '<i class="fas fa-users"></i>' },
+            { label: "Lupa", value: '<i class="fas fa-search"></i>' },
+            { label: 'Prancheta', value: '<i class="fas fa-clipboard-list"></i>' },
+            { label: 'Maleta com relógio', value: '<i class="fas fa-business-time"></i>' },
+            { label: 'Foguete', value: '<i class="fas fa-rocket"></i>' },
+            { label: 'Maleta', value: '<i class="fas fa-suitcase"></i>' },
+            { label: 'Pessoas (engrenagem)', value: '<i class="fas fa-users-cog"></i>' },
+            { label: 'Ícone do PDF', value: '<i class="fas fa-file-pdf"></i>' },
+            { label: 'Nenhum', value: ' ' }
+          ],
+          default: [' ']
+        },
+        {
+          label: 'Título do item 2',
+          name: 'titulocards2',
+          widget: 'string',
+          default: ''
+        },
+        {
+          label: 'Texto do item 2',
+          name: 'textocards2',
+          widget: 'string',
+          default: ''
+        },
+        /* Item 3 */
+        {
+          label: "Ícone do item 3",
+          name: "iconecards3",
+          widget: "select",
+          options: [
+            { label: 'Universidade', value: '<i class="fas fa-university"></i>' },
+            { label: "Pessoas", value: '<i class="fas fa-users"></i>' },
+            { label: "Lupa", value: '<i class="fas fa-search"></i>' },
+            { label: 'Prancheta', value: '<i class="fas fa-clipboard-list"></i>' },
+            { label: 'Maleta com relógio', value: '<i class="fas fa-business-time"></i>' },
+            { label: 'Foguete', value: '<i class="fas fa-rocket"></i>' },
+            { label: 'Maleta', value: '<i class="fas fa-suitcase"></i>' },
+            { label: 'Pessoas (engrenagem)', value: '<i class="fas fa-users-cog"></i>' },
+            { label: 'Ícone do PDF', value: '<i class="fas fa-file-pdf"></i>' },
+            { label: 'Nenhum', value: ' ' }
+          ],
+          default: [' ']
+        },
+        {
+          label: 'Título do item 3',
+          name: 'titulocards3',
+          widget: 'string',
+          default: ''
+        },
+        {
+          label: 'Texto do item 3',
+          name: 'textocards3',
+          widget: 'string',
+          default: ''
+        },
+        /* Item 4 */
+        {
+          label: "Ícone do item 4",
+          name: "iconecards4",
+          widget: "select",
+          options: [
+            { label: "Universidade", value: '<i class="fas fa-university"></i>' },
+            { label: "Pessoas", value: '<i class="fas fa-users"></i>' },
+            { label: "Lupa", value: '<i class="fas fa-search"></i>' },
+            { label: 'Prancheta', value: '<i class="fas fa-clipboard-list"></i>' },
+            { label: 'Maleta com relógio', value: '<i class="fas fa-business-time"></i>' },
+            { label: 'Foguete', value: '<i class="fas fa-rocket"></i>' },
+            { label: 'Maleta', value: '<i class="fas fa-suitcase"></i>' },
+            { label: 'Pessoas (engrenagem)', value: '<i class="fas fa-users-cog"></i>' },
+            { label: 'Ícone do PDF', value: '<i class="fas fa-file-pdf"></i>' },
+            { label: 'Nenhum', value: ' ' }
+          ],
+          default: [' ']
+        },
+        {
+          label: 'Título do item 4',
+          name: 'titulocards4',
+          widget: 'string',
+          default: ''
+        },
+        {
+          label: 'Texto do item 4',
+          name: 'textocards4',
+          widget: 'string',
+          default: ''
+        }
+      ],
+      pattern: /^<section class="cards" id="(.*?)"> <div class="flex"> <div class="item"> <div class="cabecalho-item"> (.*?) <h3>(.*?)<\/h3> <\/div> <p>(.*?)<\/p> <\/div> <div class="item"> <div class="cabecalho-item"> (.*?) <h3>(.*?)<\/h3> <\/div> <p>(.*?)<\/p> <\/div> <div class="item"> <div class="cabecalho-item"> (.*?) <h3>(.*?)<\/h3> <\/div> <p>(.*?)<\/p> <\/div> <div class="item"> <div class="cabecalho-item"> (.*?) <h3>(.*?)<\/h3> <\/div> <p>(.*?)<\/p> <\/div> <\/div><\/section>*$/,
+      fromBlock: function (match) {
+        return {
+          idcards: match[1],
+          /* Item 1 */
+          iconecards1: match[2],
+          titulocards1: match[3],
+          textocards1: match[4],
+          /* Item 2 */
+          iconecards2: match[5],
+          titulocards2: match[6],
+          textocards2: match[7],
+          /* Item 3 */
+          iconecards3: match[8],
+          titulocards3: match[9],
+          textocards3: match[10],
+          /* Item 4 */
+          iconecards4: match[11],
+          titulocards4: match[12],
+          textocards4: match[13]
+        };
+      },
+      toBlock: function (obj) {
+        return '<section class="cards" id="' + obj.idcards + '"> <div class="flex"> <div class="item"> <div class="cabecalho-item"> ' + obj.iconecards1 + ' <h3>' + obj.titulocards1 + '</h3> </div> <p>' + obj.textocards1 + '</p> </div> <div class="item"> <div class="cabecalho-item"> ' + obj.iconecards2 + ' <h3>' + obj.titulocards2 + '</h3> </div> <p>' + obj.textocards2 + '</p> </div> <div class="item"> <div class="cabecalho-item"> ' + obj.iconecards3 + ' <h3>' + obj.titulocards3 + '</h3> </div> <p>' + obj.textocards3 + '</p> </div> <div class="item"> <div class="cabecalho-item"> ' + obj.iconecards4 + ' <h3>' + obj.titulocards4 + '</h3> </div> <p>' + obj.textocards4 + '</p> </div> </div></section>';
+      }
+    });
+
+    /* Diretoria */
+    CMS.registerEditorComponent({
+      id: "diretoria",
+      label: "Diretoria",
+      fields: [
+        {
+          label: 'ID dos itens',
+          name: 'iddiretoria',
+          widget: 'string',
+          default: ''
+        },
+        /* Item 1 */
+        {
+          label: 'Imagem 1',
+          name: 'imagemdiretoria1',
+          widget: 'image',
+          default: ''
+        },
+        {
+          label: 'Nome 1',
+          name: 'nomediretoria1',
+          widget: 'string',
+          default: ''
+        },
+        {
+          label: 'Cargo 1',
+          name: 'cargodiretoria1',
+          widget: 'string',
+          default: ''
+
+        },
+        /* Item 2 */
+        {
+          label: 'Imagem 2',
+          name: 'imagemdiretoria2',
+          widget: 'image',
+          default: ''
+        },
+        {
+          label: 'Nome 2',
+          name: 'nomediretoria2',
+          widget: 'string',
+          default: ''
+        },
+        {
+          label: 'Cargo 2',
+          name: 'cargodiretoria2',
+          widget: 'string',
+          default: ''
+        },
+        /* Item 3 */
+        {
+          label: 'Imagem 3',
+          name: 'imagemdiretoria3',
+          widget: 'image',
+          default: ''
+        },
+        {
+          label: 'Nome 3',
+          name: 'nomediretoria3',
+          widget: 'string',
+          default: ''
+        },
+        {
+          label: 'Cargo 3',
+          name: 'cargodiretoria3',
+          widget: 'string',
+          default: ''
+        },
+        /* Item 4 */
+        {
+          label: 'Imagem 4',
+          name: 'imagemdiretoria4',
+          widget: 'image',
+          default: ''
+        },
+        {
+          label: 'Nome 4',
+          name: 'nomediretoria4',
+          widget: 'string',
+          default: ''
+        },
+        {
+          label: 'Cargo 4',
+          name: 'cargodiretoria4',
+          widget: 'string',
+          default: ''
+        }
+      ],
+      pattern: /^<section class="minicards" id="(.*?)"> <div class="corpo-minicards"> <div class="item-minicards"> <div class="minicards-imagem"> <img src="(.*?)"> <\/div> <div class="descricao-minicards"> <h3 class="titulo-item-minicards">(.*?)<\/h3> <p class="cargo-minicards">(.*?)<\/p> <\/div> <\/div> <div class="item-minicards"> <div class="minicards-imagem"> <img src="(.*?)"> <\/div> <div class="descricao-minicards"> <h3 class="titulo-item-minicards">(.*?)<\/h3> <p class="cargo-minicards">(.*?)<\/p> <\/div> <\/div> <div class="item-minicards"> <div class="minicards-imagem"> <img src="(.*?)"> <\/div> <div class="descricao-minicards"> <h3 class="titulo-item-minicards">(.*?)<\/h3> <p class="cargo-minicards">(.*?)<\/p> <\/div> <\/div> <div class="item-minicards"> <div class="minicards-imagem"> <img src="(.*?)"> <\/div> <div class="descricao-minicards"> <h3 class="titulo-item-minicards">(.*?)<\/h3> <p class="cargo-minicards">(.*?)<\/p> <\/div> <\/div> <\/div><\/section>*$/,
+      fromBlock: function (match) {
+        return {
+          iddiretoria: match[1],
+          /* Item 1 */
+          imagemdiretoria1: match[2],
+          nomediretoria1: match[3],
+          cargodiretoria1: match[4],
+          /* Item 2 */
+          imagemdiretoria2: match[5],
+          nomediretoria2: match[6],
+          cargodiretoria2: match[7],
+          /* Item 3 */
+          imagemdiretoria3: match[8],
+          nomediretoria3: match[9],
+          cargodiretoria3: match[10],
+          /* Item 4 */
+          imagemdiretoria4: match[11],
+          nomediretoria4: match[12],
+          cargodiretoria4: match[13]
+        };
+      },
+      toBlock: function (obj) {
+        return '<section class="minicards" id="' + obj.iddiretoria + '"> <div class="corpo-minicards"> <div class="item-minicards"> <div class="minicards-imagem"> <img src="' + obj.imagemdiretoria1 + '"> </div> <div class="descricao-minicards"> <h3 class="titulo-item-minicards">' + obj.nomediretoria1 + '</h3> <p class="cargo-minicards">' + obj.cargodiretoria1 + '</p> </div> </div> <div class="item-minicards"> <div class="minicards-imagem"> <img src="' + obj.imagemdiretoria2 + '"> </div> <div class="descricao-minicards"> <h3 class="titulo-item-minicards">' + obj.nomediretoria2 + '</h3> <p class="cargo-minicards">' + obj.cargodiretoria2 + '</p> </div> </div> <div class="item-minicards"> <div class="minicards-imagem"> <img src="' + obj.imagemdiretoria3 + '"> </div> <div class="descricao-minicards"> <h3 class="titulo-item-minicards">' + obj.nomediretoria3 + '</h3> <p class="cargo-minicards">' + obj.cargodiretoria3 + '</p> </div> </div> <div class="item-minicards"> <div class="minicards-imagem"> <img src="' + obj.imagemdiretoria4 + '"> </div> <div class="descricao-minicards"> <h3 class="titulo-item-minicards">' + obj.nomediretoria4 + '</h3> <p class="cargo-minicards">' + obj.cargodiretoria4 + '</p> </div> </div> </div></section>';
+      }
+    });
+
+    /* Contato */
+    CMS.registerEditorComponent({
+      id: "Contato",
+      label: "Contato",
+      fields: [
+        {
+          label: "Coordenadas",
+          name: "coordenadas",
+          widget: "string",
+          default: '-0, -0'
+        },
+        {
+          label: "Texto",
+          name: "textocontato",
+          widget: "text",
+          default: '',
+        },
+      ],
+      pattern: /^<div class="container-contato"> <form class="formulario" data-np-checked="1" data-netlify="true"> <div class="container-form-esquerda"> <input class="input" type="text" placeholder="\* Nome" data-np-checked="1"> <input class="input" type="email" placeholder="\* E-mail" data-np-checked="1"> <input class="input" type="tel" placeholder="\* Telefone" data-np-checked="1"> <input class="input" type="text" placeholder="\* Assunto" data-np-checked="1"> <\/div> <div class="container-form-direita"> <textarea class="input mensagem" placeholder="\* Sua mensagem\.\.\."><\/textarea> <button class="button-form">Enviar<\/button> <\/div> <\/form> <div style="flex: 1 1 45%; max-width: 300px; margin: 0 auto;"> <div class="mapouter"> <div class="gmap_canvas"> <iframe width="300" height="300" id="gmap_canvas" src="https:\/\/maps.google.com\/maps\?q=(.*)&amp;t=&amp;z=15&amp;ie=UTF8&amp;iwloc=&amp;output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"><\/iframe> <style> \.mapouter { position: relative; text-align: right; height: 300px; width: 300px; } \.gmap_canvas { overflow: hidden; background: none !important; height: 300px; width: 300px; } <\/style> <\/div> <\/div><\/div> <div class="endereco-telefone"> <p>([\s\S]*?)<\/p> <\/div><\/div>$/,
+      fromBlock: function (match) {
+        return {
+          coordenadas: match[1],
+          textocontato: match[2]
+        };
+      },
+      toBlock: function (obj) {
+        return '<div class="container-contato"> <form class="formulario" data-np-checked="1" data-netlify="true"> <div class="container-form-esquerda"> <input class="input" type="text" placeholder="* Nome" data-np-checked="1"> <input class="input" type="email" placeholder="* E-mail" data-np-checked="1"> <input class="input" type="tel" placeholder="* Telefone" data-np-checked="1"> <input class="input" type="text" placeholder="* Assunto" data-np-checked="1"> </div> <div class="container-form-direita"> <textarea class="input mensagem" placeholder="* Sua mensagem..."></textarea> <button class="button-form">Enviar</button> </div> </form> <div style="flex: 1 1 45%; max-width: 300px; margin: 0 auto;"> <div class="mapouter"> <div class="gmap_canvas"> <iframe width="300" height="300" id="gmap_canvas" src="https://maps.google.com/maps?q=' + obj.coordenadas + '&amp;t=&amp;z=15&amp;ie=UTF8&amp;iwloc=&amp;output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe> <style> .mapouter { position: relative; text-align: right; height: 300px; width: 300px; } .gmap_canvas { overflow: hidden; background: none !important; height: 300px; width: 300px; } </style> </div> </div></div> <div class="endereco-telefone"> <p>' + obj.textocontato + '</p> </div></div>';
+      },
+      toPreview: function (obj) {
+        return (
+          ''
+        );
       }
     });
   </script>

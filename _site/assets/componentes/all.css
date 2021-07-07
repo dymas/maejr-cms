@@ -11,3 +11,11 @@
 html {
     scroll-behavior: smooth;
 }
+
+img[src=""] {
+    display: none;
+}
+
+h2:empty {
+    display: none;
+}
