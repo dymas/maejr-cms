@@ -85,9 +85,7 @@
         return {
           titulobloco: match[1],
           textobloco: match[3],
-          iconebloco: match[4],
-          linkbloco: match[5],
-          botaobloco: match[6]
+          iconebloco: match[4]
         };
       },
       toBlock: function (obj) {
@@ -102,43 +100,42 @@
       fields: [
         {
           label: 'Título do bloco',
-          name: 'titulobloco',
+          name: 'tituloblocobtn',
           widget: 'string',
           default: ''
         },
         {
           label: 'Texto do bloco',
-          name: 'textobloco',
+          name: 'textoblocobtn',
           widget: 'string',
           default: ''
         },
         {
           label: 'Botão',
-          name: 'botaobloco',
+          name: 'blocobtn',
           widget: 'string',
           required: false,
           default: ''
         },
         {
           label: 'Link do botão',
-          name: 'linkbloco',
+          name: 'linkblocobtn',
           widget: 'string',
           required: false,
           default: ''
         }
       ],
-      pattern: /^<section class="bloco" id="(.*)"><h2>(.*)<\/h2><p>(.*)<\/p>(.*)<button><a href="(.*?)">(.*?)<\/a><\/button><\/section>*$/,
+      pattern: /^<section class="bloco" id="(.*)"><h2>(.*)<\/h2><p>(.*)<\/p><button><a href="(.*?)">(.*?)<\/a><\/button><\/section>*$/,
       fromBlock: function (match) {
         return {
-          titulobloco: match[1],
-          textobloco: match[3],
-          iconebloco: match[4],
-          linkbloco: match[5],
-          botaobloco: match[6]
+          tituloblocobtn: match[1],
+          textoblocobtn: match[3],
+          linkblocobtn: match[4],
+          botaoblocobtn: match[5]
         };
       },
       toBlock: function (obj) {
-        return '<section class="bloco" id="' + obj.titulobloco + '"><h2>' + obj.titulobloco + '</h2><p>' + obj.textobloco + '</p>' + obj.iconebloco + '<button><a href="' + obj.linkbloco + '">' + obj.botaobloco + '</a></button></section>';
+        return '<section class="bloco" id="' + obj.tituloblocobtn + '"><h2>' + obj.tituloblocobtn + '</h2><p>' + obj.textoblocobtn + '</p><button><a href="' + obj.linkblocobtn + '">' + obj.botaoblocobtn + '</a></button></section>';
       }
     });
 
