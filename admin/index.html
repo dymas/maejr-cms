@@ -65,22 +65,22 @@
           name: "iconebloco",
           widget: "select",
           options: [
-            { label: "Universidade", value: '<i class="fas fa-university"></i>' },
-            { label: "Pessoas", value: '<i class="fas fa-users"></i>' },
-            { label: "Lupa", value: '<i class="fas fa-search"></i>' },
-            { label: 'Prancheta', value: '<i class="fas fa-clipboard-list"></i>' },
-            { label: 'Maleta com relógio', value: '<i class="fas fa-business-time"></i>' },
-            { label: 'Foguete', value: '<i class="fas fa-rocket"></i>' },
-            { label: 'Maleta', value: '<i class="fas fa-suitcase"></i>' },
-            { label: 'Pessoas (engrenagem)', value: '<i class="fas fa-users-cog"></i>' },
-            { label: 'Ícone do PDF', value: '<i class="fas fa-file-pdf"></i>' },
+            { label: "Universidade", value: 'class="fas fa-university"' },
+            { label: "Pessoas", value: 'class="fas fa-users"' },
+            { label: "Lupa", value: 'class="fas fa-search"' },
+            { label: 'Prancheta', value: 'class="fas fa-clipboard-list"' },
+            { label: 'Maleta com relógio', value: 'class="fas fa-business-time"' },
+            { label: 'Foguete', value: 'class="fas fa-rocket"' },
+            { label: 'Maleta', value: 'class="fas fa-suitcase"' },
+            { label: 'Pessoas (engrenagem)', value: 'class="fas fa-users-cog"' },
+            { label: 'Ícone do PDF', value: 'class="fas fa-file-pdf"' },
             { label: 'Nenhum', value: ' ' }
           ],
           default: [' '],
           required: false
         }
       ],
-      pattern: /^<section class="bloco" id="(.*)"><h2>(.*)<\/h2><p>(.*)<\/p>(.*)<\/section>*$/,
+      pattern: /^<section class="bloco" id="(.*)"><h2>(.*)<\/h2><p>(.*)<\/p><i class="(.*?)"><\/i><\/section>*$/,
       fromBlock: function (match) {
         return {
           titulobloco: match[1],
