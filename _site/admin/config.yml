@@ -8,6 +8,9 @@ media_folder: "/assets/imagens/uploads"
 logo_url: "/assets/imagens/cmsimage.png"
 site_url: https://amazing-joliot-be8aab.netlify.app
 local_backend: true
+slug:
+  encoding: "ascii"
+  clean_accents: true
 
 collections:
   - name: "blog"
@@ -28,6 +31,7 @@ collections:
     folder: "/"
     filter: {field: "layout", value: "politicas"}
     create: true
+    preview_path: "/{{title}}.html"
     slug: "{{slug}}"
     format: frontmatter
     fields:
@@ -39,6 +43,7 @@ collections:
     folder: "/"
     filter: {field: "layout", value: "default"}
     create: true
+    preview_path: "/{{title}}.html"
     slug: "{{slug}}"
     format: frontmatter
     fields:
@@ -53,6 +58,18 @@ collections:
   - label: "Configurações"
     name: "configuracoes"
     files:
+      - label: "Página Inicial"
+        name: "paginainicial"
+        file: "/index.md"
+        fields:
+          - {label: "Layout", name: "layout", widget: "hidden", default: "default"}
+          - {label: "Título da página", name: "title", widget: "string"}
+          - {label: "Título no banner", name: "bannertitle", widget: "string"}
+          - {label: "Subtítulo", name: "bannersubtitle", widget: "string"}
+          - {label: "Botão", name: "buttontext", widget: "string", required: false}
+          - {label: "Link do botão", name: "buttonlink", widget: "string", required: false}
+          - {label: "Imagem de fundo", name: "bannerimage", widget: "image"}
+          - {label: "Texto", name: "body", widget: "markdown"}  
       - label: "Menu lateral"
         name: "menulateral"
         file: "/_data/menu.yml"
