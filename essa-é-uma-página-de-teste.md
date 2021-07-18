@@ -1,6 +1,6 @@
 ---
 layout: default
-editavel: true
+editavel: "true"
 title: Essa é uma página de teste
 bannertitle: Essa é uma página de teste
 bannersubtitle: Exemplo de página nova

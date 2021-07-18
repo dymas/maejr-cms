@@ -1,6 +1,6 @@
 ---
 layout: default
-editavel: true
+editavel: "true"
 title: Teste
 bannertitle: Exemplo de página
 bannersubtitle: Essa página é um exemplo.
