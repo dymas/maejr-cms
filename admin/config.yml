@@ -41,13 +41,16 @@ collections:
   - name: "paginas"
     label: "Páginas"
     folder: "/"
-    filter: {field: "layout", value: "default"}
+    filter:
+      - {field: "layout", value: "default"}
+      - {field: "editavel", value: "true"}
     create: true
     preview_path: "/{{title}}.html"
     slug: "{{slug}}"
     format: frontmatter
     fields:
       - {label: "Layout", name: "layout", widget: "hidden", default: "default"}
+      - {label: "Editável", name: "editavel", widget: "hidden", default: "true"}
       - {label: "Título da página", name: "title", widget: "string"}
       - {label: "Título no banner", name: "bannertitle", widget: "string"}
       - {label: "Subtítulo", name: "bannersubtitle", widget: "string"}

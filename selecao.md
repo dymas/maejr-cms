@@ -1,5 +1,6 @@
 ---
 layout: default
+editavel: true
 title: Processo Seletivo
 bannertitle: Faça parte desse time!
 bannersubtitle: INSCRIÇÕES ABERTAS PARA O PROCESSO SELETIVO<br> DE NOVOS MEMBROS

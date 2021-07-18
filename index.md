@@ -1,5 +1,6 @@
 ---
 layout: default
+editavel: false
 title: Página Inicial
 bannertitle: Essa empresa também é sua!
 bannersubtitle: Agende já sua primeira consultoria

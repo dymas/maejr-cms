@@ -223,7 +223,7 @@
           default: ''
         }
       ],
-      pattern: /^<section class="bloco"><a class="url-pdf" href="(.*?)">(.*?)<\/a><a class="url-pdf" href="(.*?)">(.*?)<\/a><a class="url-pdf" href="(.*?)">(.*?)<\/a><\/section>$/,
+      pattern: /^<section class="bloco"><div class="pdf-icons"><a class="url-pdf" href="(.*?)">(.*?)<\/a><a class="url-pdf" href="(.*?)">(.*?)<\/a><a class="url-pdf" href="(.*?)">(.*?)<\/a><\/div><\/section>$/,
       fromBlock: function (match) {
         return {
           linkicone1: match[1],
@@ -235,7 +235,7 @@
         };
       },
       toBlock: function (obj) {
-        return '<section class="bloco"><a class="url-pdf" href="' + obj.linkicone1 + '">' + obj.iconelink1 + '</a><a class="url-pdf" href="' + obj.linkicone2 + '">' + obj.iconelink2 + '</a><a class="url-pdf" href="' + obj.linkicone3 + '">' + obj.iconelink3 + '</a></section>';
+        return '<section class="bloco"><div class="pdf-icons"><a class="url-pdf" href="' + obj.linkicone1 + '">' + obj.iconelink1 + '</a><a class="url-pdf" href="' + obj.linkicone2 + '">' + obj.iconelink2 + '</a><a class="url-pdf" href="' + obj.linkicone3 + '">' + obj.iconelink3 + '</a></div></section>';
       },
       toPreview: function (obj) {
         return '';
