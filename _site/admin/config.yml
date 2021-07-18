@@ -41,9 +41,7 @@ collections:
   - name: "paginas"
     label: "Páginas"
     folder: "/"
-    filter:
-      - {field: "layout", value: "default"}
-      - {field: "editavel", value: "true"}
+    filter: {field: "editavel", value: "true"}
     create: true
     preview_path: "/{{title}}.html"
     slug: "{{slug}}"
