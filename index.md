@@ -8,7 +8,7 @@ buttontext: Saiba Mais
 buttonlink: /#sobre nós
 bannerimage: /assets/imagens/leon-Oalh2MojUuk-unsplash.jpg
 ---
-<section class="bloco" id="Sobre nós"><h2>Sobre nós</h2><p>A Multi Assessorial Empresarial Júnior é uma associação sem fins lucrativos, com finalidades educacionais na área de Consultoria Empresarial. Entre os principais objetivos, a empresa júnior pretende propiciar ao estudante a oportunidade de aplicar e aprimorar conhecimentos teóricos adquiridos em sala de aula.</p><i class="class="fas fa-university""></i></section>
+<section class="bloco" id="Sobre nós"><h2>Sobre nós</h2><p>A Multi Assessorial Empresarial Júnior é uma associação sem fins lucrativos, com finalidades educacionais na área de Consultoria Empresarial. Entre os principais objetivos, a empresa júnior pretende propiciar ao estudante a oportunidade de aplicar e aprimorar conhecimentos teóricos adquiridos em sala de aula.</p><i class="fas fa-university"></i></section>
 
 ## Serviços que prestamos
 
