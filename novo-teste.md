@@ -3,8 +3,9 @@ layout: default
 editavel: "true"
 title: Novo teste
 bannertitle: teste teste
-bannersubtitle: testetestetestetestetestetestetestetestetestetestetestetestetestetestetestetestetesteteste
-  testetestetestetestetestetestetesteteste
+bannersubtitle: "teste teste teste teste teste teste teste teste teste teste
+  teste teste teste teste teste teste teste teste teste teste teste teste teste
+  teste teste "
 bannerimage: /assets/imagens/uploads/sunsettraininstasmallgrain.jpg
 ---
 # Nível um
