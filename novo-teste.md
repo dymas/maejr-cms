@@ -12,8 +12,6 @@ bannerimage: /assets/imagens/uploads/sunsettraininstasmallgrain.jpg
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sit amet lectus vitae sapien rhoncus consectetur. Suspendisse lacinia, neque id varius ultrices, odio nisi scelerisque augue, ac tincidunt massa magna quis urna. Phasellus ut massa sit amet purus sodales laoreet. Pellentesque turpis nisl, mollis non neque non, aliquam volutpat mi. Praesent quis malesuada quam. Pellentesque id metus mollis, pretium magna at, molestie leo. Donec venenatis sapien quis justo viverra, in cursus dolor convallis. Curabitur dictum pharetra condimentum. Nunc nec malesuada est.
 
-## Nível 2
-
 Aliquam ex eros, lacinia nec malesuada quis, lobortis a magna. Sed laoreet a risus sit amet sollicitudin. Cras aliquet nec arcu vitae dapibus. Curabitur et consectetur lacus, gravida facilisis ante. Praesent maximus vulputate aliquet. Praesent a est quis eros mollis gravida a eget tortor. Quisque id nulla eu justo pulvinar vehicula. Nullam ultricies metus a mollis luctus. Duis condimentum nibh at sem blandit volutpat. Nullam ornare felis a ligula hendrerit pulvinar. Etiam rutrum nunc et felis mollis, id convallis massa lobortis. Praesent a turpis nec lectus sodales fringilla ac rutrum elit. Pellentesque nec lobortis nibh. Nulla dignissim nisl placerat, congue augue at, bibendum eros.
 
 ### Nível 3
