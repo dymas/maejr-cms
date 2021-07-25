@@ -21,6 +21,10 @@
     margin: 0 auto;
 }
 
+.flex .item:empty {
+    display: none;
+}
+
 .flex .item {
     flex: 1 1 39%;
     border-left: 8px solid #008bd8;

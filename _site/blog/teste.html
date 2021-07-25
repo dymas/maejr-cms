@@ -88,10 +88,16 @@ colonists.</p>
         <div class="voltar"><a href="/blog.html">← Voltar para o blog</a></div>
     </main>
     <script>
-    var elementos = document.getElementsByClassName("item-minicards")
+    var elementos = document.getElementsByClassName("item-minicards");
     for (var item in elementos) { 
         if (elementos[item].children[1].children[0].innerHTML == "") {
             elementos[item].innerHTML = "";
+        }
+    }
+    var elementos_cards = document.getElementsByClassName("item");
+    for (var item in elementos_cards) { 
+        if (elementos_cards[item].children[1].innerHTML == "") {
+            elementos_cards[item].innerHTML = "";
         }
     }
 </script>

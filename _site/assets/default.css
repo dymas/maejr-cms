@@ -5,6 +5,20 @@
     text-align: center;
 }
 
+.default p, .default ol, .default ul {
+    font-family: Poppins;
+    font-weight: 300;
+    line-height: 1.5;
+    max-width: 1000px;
+    margin: 0 auto 1rem auto;
+}
+
+h1, h3, h4, h5, h6 {
+    font-family: 'Bebas Neue', sans-serif;
+    letter-spacing: 1px;
+    font-weight: 600;
+}
+
 .default h2:empty {
     display: none;
 }
