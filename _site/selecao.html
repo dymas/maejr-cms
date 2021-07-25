@@ -87,13 +87,22 @@
 </div>
 </div>
     <div class="default">
-    <section class="bloco" id="Download Dos Documentos Necessários"><h2>Download Dos Documentos Necessários</h2><p>Estamos disponibilizando o Estatuto da MAE JR atualizado, regimento e edital para o processo de seleção de novos membros. Leia tudo com bastante atenção!</p> </section>
+    <section class="bloco" id="Download Dos Documentos Necessários"><h2>Download Dos Documentos Necessários</h2><p>Estamos disponibilizando o Estatuto da MAE JR atualizado, regimento e edital para o processo de seleção de novos membros. Leia tudo com bastante atenção!</p><i class=" "></i></section>
 
-<section class="bloco"><a class="url-pdf" href="http://google.com"><i class="fas fa-file-pdf"></i></a><a class="url-pdf" href="http://google.com"><i class="fas fa-file-pdf"></i></a><a class="url-pdf" href="http://google.com"><i class="fas fa-file-pdf"></i></a></section>
+<section class="bloco"><div class="pdf-icons"><a class="url-pdf" href="http://google.com"><i class="fas fa-file-pdf"></i></a><a class="url-pdf" href="http://google.com"><i class="fas fa-file-pdf"></i></a><a class="url-pdf" href="http://google.com"><i class="fas fa-file-pdf"></i></a></div></section>
 
     </div>
 
-    <footer class="rodape">
+    <script>
+    var elementos = document.getElementsByClassName("item-minicards")
+    for (var item in elementos) { 
+        if (elementos[item].children[1].children[0].innerHTML == "") {
+            elementos[item].innerHTML = "";
+        }
+    }
+</script>
+
+<footer class="rodape">
     <div class="container-rodape">
         <div class="text1-rodape">
             <a href="https://www.catiuespi.com/" target="_blank">
@@ -122,13 +131,13 @@
 </footer>
 <script>
     if (window.netlifyIdentity) {
-      window.netlifyIdentity.on("init", user => {
-        if (!user) {
-          window.netlifyIdentity.on("login", () => {
-            document.location.href = "/admin/";
-          });
-        }
-      });
+        window.netlifyIdentity.on("init", user => {
+            if (!user) {
+                window.netlifyIdentity.on("login", () => {
+                    document.location.href = "/admin/";
+                });
+            }
+        });
     }
 </script>
 </body>

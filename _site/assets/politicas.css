@@ -10,8 +10,9 @@
     border-radius: 8px;
     box-shadow: 0 2px 4px rgb(0 0 0 / 20%);
     color: #000;
-    margin: 4em;
+    margin: 4em auto;
     padding: 4em;
+    max-width: 1000px;
 }
 
 h2 {

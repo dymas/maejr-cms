@@ -5,6 +5,10 @@
     text-align: center;
 }
 
+.default h2:empty {
+    display: none;
+}
+
 .default h2 {
     font-family: "Bebas Neue", sans-serif;
     margin: 2rem 0 2rem 0;

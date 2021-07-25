@@ -87,7 +87,7 @@
 </div>
 </div>
     <div class="default">
-    <section class="bloco" id="Sobre nós"><h2>Sobre nós</h2><p>A Multi Assessorial Empresarial Júnior é uma associação sem fins lucrativos, com finalidades educacionais na área de Consultoria Empresarial. Entre os principais objetivos, a empresa júnior pretende propiciar ao estudante a oportunidade de aplicar e aprimorar conhecimentos teóricos adquiridos em sala de aula.</p>&lt;i class="class="fas fa-university""&gt;&lt;/i&gt;</section>
+    <section class="bloco" id="Sobre nós"><h2>Sobre nós</h2><p>A Multi Assessorial Empresarial Júnior é uma associação sem fins lucrativos, com finalidades educacionais na área de Consultoria Empresarial. Entre os principais objetivos, a empresa júnior pretende propiciar ao estudante a oportunidade de aplicar e aprimorar conhecimentos teóricos adquiridos em sala de aula.</p><i class="fas fa-university"></i></section>
 
 <h2 id="serviços-que-prestamos">Serviços que prestamos</h2>
 
@@ -120,7 +120,16 @@ ORÇAMENTO: (89) 9-9988-9312<br /></p> </div></div>
 
     </div>
 
-    <footer class="rodape">
+    <script>
+    var elementos = document.getElementsByClassName("item-minicards")
+    for (var item in elementos) { 
+        if (elementos[item].children[1].children[0].innerHTML == "") {
+            elementos[item].innerHTML = "";
+        }
+    }
+</script>
+
+<footer class="rodape">
     <div class="container-rodape">
         <div class="text1-rodape">
             <a href="https://www.catiuespi.com/" target="_blank">
@@ -149,13 +158,13 @@ ORÇAMENTO: (89) 9-9988-9312<br /></p> </div></div>
 </footer>
 <script>
     if (window.netlifyIdentity) {
-      window.netlifyIdentity.on("init", user => {
-        if (!user) {
-          window.netlifyIdentity.on("login", () => {
-            document.location.href = "/admin/";
-          });
-        }
-      });
+        window.netlifyIdentity.on("init", user => {
+            if (!user) {
+                window.netlifyIdentity.on("login", () => {
+                    document.location.href = "/admin/";
+                });
+            }
+        });
     }
 </script>
 </body>

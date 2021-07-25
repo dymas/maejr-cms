@@ -101,7 +101,16 @@ berry of several species of woody vines in the genus Actinidia.</p>
 </main>
 
 
-    <footer class="rodape">
+    <script>
+    var elementos = document.getElementsByClassName("item-minicards")
+    for (var item in elementos) { 
+        if (elementos[item].children[1].children[0].innerHTML == "") {
+            elementos[item].innerHTML = "";
+        }
+    }
+</script>
+
+<footer class="rodape">
     <div class="container-rodape">
         <div class="text1-rodape">
             <a href="https://www.catiuespi.com/" target="_blank">
@@ -130,13 +139,13 @@ berry of several species of woody vines in the genus Actinidia.</p>
 </footer>
 <script>
     if (window.netlifyIdentity) {
-      window.netlifyIdentity.on("init", user => {
-        if (!user) {
-          window.netlifyIdentity.on("login", () => {
-            document.location.href = "/admin/";
-          });
-        }
-      });
+        window.netlifyIdentity.on("init", user => {
+            if (!user) {
+                window.netlifyIdentity.on("login", () => {
+                    document.location.href = "/admin/";
+                });
+            }
+        });
     }
 </script>
 </body>
