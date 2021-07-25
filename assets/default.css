@@ -7,7 +7,7 @@
 
 .default ol, .default ul {
     text-align: left;
-    max-width: 800px;
+    max-width: 800px !important;
     margin: 2rem auto;
 }
 
