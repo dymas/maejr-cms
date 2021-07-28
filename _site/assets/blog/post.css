@@ -3,10 +3,15 @@
     max-width: 1110px;
 }
 
-.post-aberto h2 {
+.post-aberto h1, .post-aberto h2, .post-aberto h3, .post-aberto h4, .post-aberto h5, .post-aberto h6 {
     font-family: "Poppins", sans-serif;
     text-align: center;
     font-size: 2rem;
+}
+
+blockquote {
+    margin-left: 50px;
+    border-left: 5px solid #1f4d8e;
 }
 
 .data {
@@ -25,7 +30,7 @@
     width: 100%;
 }
 
-.post-aberto p {
+.post-aberto p, .post-aberto ul, .post-aberto ol {
     margin: 20px auto;
     width: 70%;
     line-height: 1.7;

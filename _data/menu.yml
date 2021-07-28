@@ -2,18 +2,16 @@ nav:
   - title: Home
     url: /
   - title: Sobre
-    url: /#sobre
+    url: /#Sobre nós
   - title: Serviços
-    url: /#servicos
+    url: /#serviços-que-prestamos
   - title: Consultoria
-    url: /#consultoria
+    url: /#processo-de-consultoria
   - title: Diretoria
     url: /#diretoria
   - title: Contato
-    url: /#contato
+    url: /#contatos
   - title: Blog
     url: blog.html
   - title: Processo Seletivo
     url: selecao.html
-  - title: Teste
-    url: /teste.html
