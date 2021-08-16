@@ -10,6 +10,8 @@ bannerimage: /assets/imagens/uploads/paulius-dragunas-id6-vgsfdwo-unsplash.jpg
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed varius eros non tincidunt fermentum. Praesent sit amet tempor tortor, sed porta sapien. Vestibulum sem dolor, tincidunt et elit ut, iaculis ultrices massa. In ac vulputate felis. Donec sollicitudin ligula at risus bibendum varius. Nam ornare ultrices nulla at mollis. Nunc sit amet erat in dolor accumsan pharetra. Curabitur ac pretium purus, eget imperdiet lorem. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus eleifend iaculis dignissim. Nunc feugiat ante id diam lobortis, et vulputate sem pulvinar. Integer faucibus urna mauris, vitae efficitur risus ornare sed.
 
+<section class="bloco" id="Bloco teste"><h2>Bloco teste</h2><p>Teste de bloco</p><i class="fas fa-suitcase"></i></section>
+
 ## Nível 2
 
 Etiam diam mi, volutpat nec mattis vel, accumsan non lorem. Aliquam sit amet vestibulum orci, quis imperdiet dui. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Aenean ut sapien ligula. Donec interdum pharetra blandit. Nulla auctor vitae orci et dapibus. Nam at elit euismod, malesuada ex a, tincidunt sem. Vestibulum ultrices neque in facilisis faucibus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Suspendisse vehicula ornare est non vulputate. Nam euismod laoreet elit, vel luctus felis auctor id. Suspendisse suscipit quam sed dui placerat, sed iaculis velit faucibus. Nulla viverra leo et ligula sagittis, sed commodo dui pellentesque.
