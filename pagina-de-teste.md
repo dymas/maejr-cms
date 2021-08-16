@@ -1,11 +1,13 @@
 ---
 layout: default
 editavel: "true"
-title: Página de teste
+title: Página de teste 1
 bannertitle: Teste
 bannersubtitle: teste
 bannerimage: /assets/imagens/uploads/paulius-dragunas-id6-vgsfdwo-unsplash.jpg
 ---
+<section class="bloco" id="Teste"><h2>Teste</h2><p>Exemplo de bloco</p><i class="fas fa-business-time"></i></section>
+
 # Nível 1
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed varius eros non tincidunt fermentum. Praesent sit amet tempor tortor, sed porta sapien. Vestibulum sem dolor, tincidunt et elit ut, iaculis ultrices massa. In ac vulputate felis. Donec sollicitudin ligula at risus bibendum varius. Nam ornare ultrices nulla at mollis. Nunc sit amet erat in dolor accumsan pharetra. Curabitur ac pretium purus, eget imperdiet lorem. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus eleifend iaculis dignissim. Nunc feugiat ante id diam lobortis, et vulputate sem pulvinar. Integer faucibus urna mauris, vitae efficitur risus ornare sed.
