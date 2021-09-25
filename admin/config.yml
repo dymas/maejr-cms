@@ -6,7 +6,7 @@ locale: pt
 publish_mode: editorial_workflow
 media_folder: "/assets/imagens/uploads"
 logo_url: "/assets/imagens/cmsimage.png"
-site_url: https://amazing-joliot-be8aab.netlify.app
+site_url: https://maejr.netlify.app
 local_backend: true
 slug:
   encoding: "ascii"
